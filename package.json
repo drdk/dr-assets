@@ -1,0 +1,11 @@
+{
+  "name": "dr-local-assets",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "(c) 2014 the Danish Broadcasting Corporation. All rights reserved."
+}

@@ -1,0 +1,18 @@
+.font-face (@family, @path, @font-weight: normal) {
+	font-family: @family;
+	src: url("@{path}.eot");
+	src: url("@{path}.eot?#iefix") format("embedded-opentype"),
+		 url("@{path}.woff") format("woff"),
+		 url("@{path}.ttf") format("truetype"),
+		 url("@{path}.svg") format("svg");
+	font-weight: @font-weight;
+}
+
+.heading (@font-size; @line-height) {
+	font-family: @font-family-sans-serif-semibold;
+	font-weight: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	font-size: @font-size;
+	line-height: @line-height;
+}
