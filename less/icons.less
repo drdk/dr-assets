@@ -95,9 +95,30 @@
 	content: "🔍";
 }
 			
-[class*=dr-icon-mail]:before {
-	//content: "\1F4E7";
-	content: "📧";
+[class*=dr-icon-mail] {
+	&:before {
+		//content: "\1F4E7";
+		content: "📧";
+	}
+
+	&[class*="-large"]:before {
+		position: relative;
+		top: -1px;
+		font-size: 18px;
+		left: 4px;
+	}
+
+	&[class*="-medium"]:before {
+		position: relative;
+		top: -1px;
+		font-size: 10px;
+		left: 4px;
+	}
+
+
+	&[class*="-boxed"]:before {
+		background-color: inherit;
+	}
 }
 			
 [class*=dr-icon-add]:before {
