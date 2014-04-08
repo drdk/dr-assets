@@ -1,0 +1,20 @@
+.dotted-border () {
+	.dotted-border-bg(100%);
+}
+.dotted-border-top () {
+	.dotted-border-bg(-2px);
+}
+.dotted-border-bottom () {
+	.dotted-border;
+}
+.dotted-border-hide () {
+	background-position: 0 -3px;
+}
+.dotted-border-bg (@align) {
+	background: transparent url(../../img/_source/border.svg) repeat-x -2px @align;
+
+	.no-svg & {
+		background-image: url(../../img/_source/border.png);
+	}
+}
+
