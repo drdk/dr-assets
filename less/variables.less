@@ -49,16 +49,40 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
-@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+//** Heading font sizes
+@headings-font-size-xxsmall     : 14px;
+@headings-font-size-xsmall      : 14px;
+@headings-font-size-small       : 18px;
+@headings-font-size-medium      : 24px;
+@headings-font-size-large       : 30px;
+@headings-font-size-xlarge      : 36px;
+@headings-font-size-xxlarge     : 42px;
+@headings-font-size-xxxlarge    : 48px;
+@headings-font-size-xxxxlarge   : 54px;
 
-@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
-@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
-@font-size-h5:            @font-size-base;
-@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+//** Heading line-height
+@headings-line-height-xxsmall   : @headings-font-size-xxsmall + 2;
+@headings-line-height-xsmall    : @headings-font-size-xsmall + 2;
+@headings-line-height-small     : @headings-font-size-small + 2;
+@headings-line-height-medium    : @headings-font-size-medium + 2;
+@headings-line-height-large     : @headings-font-size-large + 2;
+@headings-line-height-xlarge    : @headings-font-size-xlarge + 2;
+@headings-line-height-xxlarge   : @headings-font-size-xxlarge + 2;
+@headings-line-height-xxxlarge  : @headings-font-size-xxxlarge + 2;
+@headings-line-height-xxxxlarge : @headings-font-size-xxxxlarge + 2;
+
+//** Default fonts
+
+@font-size-base:          14px;
+@font-size-large:         @headings-font-size-large;
+@font-size-small:         @headings-font-size-small;
+
+@font-size-h1:            @headings-font-size-xxxlarge; 
+@font-size-h2:            @headings-font-size-xxlarge;
+@font-size-h3:            @headings-font-size-xlarge;
+@font-size-h4:            @headings-font-size-large;
+@font-size-h5:            @headings-font-size-medium;
+@font-size-h6:            @headings-font-size-small;
 
 //** Unit-less `line-height` for use in components like buttons.
 @line-height-base:        1.428571429; // 20/14
@@ -103,9 +127,9 @@
 @line-height-large:         1.33;
 @line-height-small:         1.5;
 
-@border-radius-base:        4px;
-@border-radius-large:       6px;
-@border-radius-small:       3px;
+@border-radius-base:        2px;
+@border-radius-large:       2px;
+@border-radius-small:       2px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    #fff;
