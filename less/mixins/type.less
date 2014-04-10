@@ -8,19 +8,24 @@
 	font-weight: @font-weight;
 }
 
+.font-size-line-height(@font-size; @line-height) {
+	font-size: @font-size;
+	line-height: @line-height;
+}
+
 .heading (@font-size; @line-height) {
 	font-family: @font-family-sans-serif-semibold;
 	font-weight: normal;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	font-size: @font-size;
+	font-size: @font-size; 
 	line-height: @line-height;
 	color: @headings-color;
 }
 
 .paragraph() {
-	font-size: 16px;
-	line-height: 22px;
+	font-size: @paragraph-font-size; 
+	line-height: @paragraph-line-height;
 	font-family: @font-family-serif;
 }
 
