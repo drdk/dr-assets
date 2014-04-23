@@ -1,15 +1,13 @@
-// Set col gutters, xs is already set per default
-.set-col-gutter-width(sm, @grid-gutter-sm-width);
-.set-col-gutter-width(md, @grid-gutter-md-width);
-.set-col-gutter-width(lg, @grid-gutter-lg-width);
-
-// Set row gutters, xs is already set per default
+// Set col and row gutters, xs is already set per default
 @media (min-width: @screen-sm-min) {
+  .set-col-gutter-width(@grid-gutter-sm-width);
   .set-row-gutter-width(@grid-gutter-sm-width);
 }
 @media (min-width: @screen-md-min) {
+  .set-col-gutter-width(@grid-gutter-md-width);
   .set-row-gutter-width(@grid-gutter-md-width);
 }
 @media (min-width: @screen-lg-min) {
+  .set-col-gutter-width(@grid-gutter-lg-width);
   .set-row-gutter-width(@grid-gutter-lg-width);
 }

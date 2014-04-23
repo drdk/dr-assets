@@ -1,11 +1,11 @@
 // Gutter width for specific column sizes
-.set-col-gutter-width(@class, @width) {
+.set-col-gutter-width(@width) {
   .col-gutter(@index) when (@index = 1) { // initial
-    @item: ~".col-@{class}-@{index}";
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
     .col-gutter((@index + 1), @item);
   }
   .col-gutter(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-    @item: ~".col-@{class}-@{index}";
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
     .col-gutter((@index + 1), ~"@{list}, @{item}");
   }
   .col-gutter(@index, @list) when (@index > @grid-columns) { // terminal
