@@ -1,13 +1,13 @@
 // Change gutter for specific column size (xs)
 .col-gutter(@index, @class, @gutter-width) when (@index = 1) { // initial
-  @item: ~".col-xs-@{index}";
+  @item: ~".col-@{class}-@{index}";
   .col-gutter((@index + 1), @item, @class, @gutter-width);
 }
 .col-gutter(@index, @list, @class, @gutter-width) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-  @item: ~".col-xs-@{index}";
-  .col-gutter((@index + 1), ~"@{list}, @{item}", @class, @gutter-width);
+  @item: ~".col-@{class}-@{index}";
+  .col-gutter((@index + 1), ~"@{list}, @{item}", @gutter-width);
 }
-.col-gutter(@index, @list, @class, @gutter-width) when (@index > @grid-columns) { // terminal
+.col-gutter(@index, @list, @gutter-width) when (@index > @grid-columns) { // terminal
   @{list} {
     // Change inner gutter via padding
     //** Padding between columns. Gets divided in half for the left and right.
