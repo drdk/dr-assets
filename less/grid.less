@@ -1,20 +1,15 @@
-// Change gutter for specific column size (xs)
-.col-gutter(@index, @class, @gutter-width) when (@index = 1) { // initial
-  @item: ~".col-@{class}-@{index}";
-  .col-gutter((@index + 1), @item, @class, @gutter-width);
-}
-.col-gutter(@index, @list, @class, @gutter-width) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-  @item: ~".col-@{class}-@{index}";
-  .col-gutter((@index + 1), ~"@{list}, @{item}", @gutter-width);
-}
-.col-gutter(@index, @list, @gutter-width) when (@index > @grid-columns) { // terminal
-  @{list} {
-    // Change inner gutter via padding
-    //** Padding between columns. Gets divided in half for the left and right.
-    padding-left:  @gutter-width;
-    padding-right: @gutter-width;
-  }
-}
+// Set col gutters, xs is already set per default
+.set-col-gutter-width(sm, @grid-gutter-sm-width);
+.set-col-gutter-width(md, @grid-gutter-md-width);
+.set-col-gutter-width(lg, @grid-gutter-lg-width);
 
-.col-gutter(1, xs, 5px); // kickstart column defs for xs settings gutter width to 5px
-
+// Set row gutters, xs is already set per default
+@media (min-width: @screen-sm-min) {
+  .set-row-gutter-width(@grid-gutter-sm-width);
+}
+@media (min-width: @screen-md-min) {
+  .set-row-gutter-width(@grid-gutter-md-width);
+}
+@media (min-width: @screen-lg-min) {
+  .set-row-gutter-width(@grid-gutter-lg-width);
+}

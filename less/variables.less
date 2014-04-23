@@ -330,7 +330,14 @@
 //** Number of columns in the grid.
 @grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         20px;
+@grid-gutter-xs-width:      10px;
+@grid-gutter-sm-width:      20px;
+@grid-gutter-md-width:      20px;
+@grid-gutter-lg-width:      20px;
+
+
+// Set default gutter width variable to xs gutter width
+@grid-gutter-width:         @grid-gutter-xs-width;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint:     @screen-sm-min;
