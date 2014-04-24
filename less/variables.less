@@ -49,32 +49,33 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-//** Heading font sizes
-@headings-font-size-xxsmall     : 14px;
-@headings-font-size-xsmall      : 14px;
-@headings-font-size-small       : 18px;
-@headings-font-size-medium      : 24px;
-@headings-font-size-large       : 30px;
-@headings-font-size-xlarge      : 36px;
-@headings-font-size-xxlarge     : 42px;
-@headings-font-size-xxxlarge    : 48px;
-@headings-font-size-xxxxlarge   : 54px;
+//** Base font size
+@font-size-base:          16px;
+
+//** Heading font sizes based on font-size-base
+@headings-font-size-xxsmall     : 87.5%;
+@headings-font-size-xsmall      : 87.5%;
+@headings-font-size-small       : 112.5%;
+@headings-font-size-medium      : 150%;
+@headings-font-size-large       : 187.5%;
+@headings-font-size-xlarge      : 225%;
+@headings-font-size-xxlarge     : 262.5%;
+@headings-font-size-xxxlarge    : 300%;
+@headings-font-size-xxxxlarge   : 337.5%;
 
 //** Heading line-height
-@headings-line-height-xxsmall   : (@headings-font-size-xxsmall + 2);
-@headings-line-height-xsmall    : (@headings-font-size-xsmall + 2);
-@headings-line-height-small     : (@headings-font-size-small + 2);
-@headings-line-height-medium    : (@headings-font-size-medium + 2);
-@headings-line-height-large     : (@headings-font-size-large + 2);
-@headings-line-height-xlarge    : (@headings-font-size-xlarge + 2);
-@headings-line-height-xxlarge   : (@headings-font-size-xxlarge + 2);
-@headings-line-height-xxxlarge  : (@headings-font-size-xxxlarge + 2);
-@headings-line-height-xxxxlarge : (@headings-font-size-xxxxlarge + 2);
+@headings-line-height-xxsmall   : (@headings-font-size-xxsmall + 12.5%);
+@headings-line-height-xsmall    : (@headings-font-size-xsmall + 12.5%);
+@headings-line-height-small     : (@headings-font-size-small + 12.5%);
+@headings-line-height-medium    : (@headings-font-size-medium + 12.5%);
+@headings-line-height-large     : (@headings-font-size-large + 12.5%);
+@headings-line-height-xlarge    : (@headings-font-size-xlarge + 12.5%);
+@headings-line-height-xxlarge   : (@headings-font-size-xxlarge + 12.5%);
+@headings-line-height-xxxlarge  : (@headings-font-size-xxxlarge + 12.5%);
+@headings-line-height-xxxxlarge : (@headings-font-size-xxxxlarge + 12.5%);
 
 
 //** Default fonts
-
-@font-size-base:          16px;
 @font-size-large:         @headings-font-size-large;
 @font-size-small:         @headings-font-size-small;
 
@@ -97,8 +98,9 @@
 @headings-color:          #000;
 
 //** Paragraph
+@paragraph-color:         @text-color;
 @paragraph-font-size:     @font-size-base;
-@paragraph-line-height:   22px;
+@paragraph-line-height:   137.5%;
 
 
 //== Iconography
