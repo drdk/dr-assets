@@ -21,7 +21,7 @@
     
   }
   @media (min-width: @screen-md-min) {
-    .font-size(400%, 412.5%);
+    //.font-size(400%, 412.5%);
   }
   @media (min-width: @screen-lg-min) {
     
@@ -44,47 +44,29 @@
   .heading-xxxxlarge();
 }
 
-h6 {
-  .heading-small;
-}
-
-h5 {
-  .heading-medium;
-}
-
-h4 {
-  .heading-large;
-}
-
-h3 {
-  .heading-xlarge;
-}
-
-h2 {
-  .heading-xxlarge;
-}
-
-h1 {
-  .heading-xxxlarge;
-}
-
 p {
   .paragraph;
 }
 
 .section-header {
-  > h2 {
+  &.heading-medium,
+  &.heading-large,
+  &.heading-xlarge,
+  &.heading-xxlarge,
+  &.heading-xxxlarge,
+  &.heading-xxxxlarge {
     border-top: 6px solid #000;
     border-bottom: 1px solid #CCC;
     padding: 15px 0 15px 0;
     margin: 20px 0 20px 0;
+    line-height: 1;
   }
 
-  > h3,
-  > h4,
-  > h5,
-  > h6 {
+  &.heading-small,
+  &.heading-xsmall,
+  &.heading-xxsmall {
     border-top-width: 3px;
     padding: 10px 0 10px 0;
+    line-height: 1;
   }
 }
