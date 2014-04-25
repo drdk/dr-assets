@@ -20,12 +20,6 @@
 	overflow-wrap: break-word;
 }
 
-.paragraph() {
-	.font-family(@font-family-serif);
-	.font-size(@paragraph-font-size; @paragraph-line-height);
-	color: @paragraph-color;
-}
-
 .heading-xxsmall() {
 	.font-family(@font-family-sans-serif);
 	.font-size(@headings-font-size-xxsmall; @headings-line-height-xxsmall);
@@ -78,4 +72,16 @@
 	.font-family(@font-family-sans-serif-semibold);
 	.font-size(@headings-font-size-xxxxlarge; @headings-line-height-xxxxlarge);
 	color: @headings-color;
+}
+
+.paragraph() {
+	.font-family(@font-family-serif);
+	.font-size(@paragraph-font-size; @paragraph-line-height);
+	color: @paragraph-color;
+}
+
+.description() {
+	.font-family(@font-family-sans-serif);
+	.font-size(@description-font-size; @description-line-height);
+	color: @description-color;
 }
