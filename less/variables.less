@@ -51,8 +51,6 @@
 
 //** Base font size. All other fonts are based on the font size.
 @font-size-base                              : 16px;
-
-//** Headings font sizes based on font-size-base. XS uses these as default.
 // 87.5%;  = 14px
 // 87.5%;  = 14px
 // 112.5%; = 18px 
@@ -62,14 +60,22 @@
 // 262.5%; = 42px
 // 300%;   = 48px
 // 337.5%; = 54px
-@headings-font-size-xsmall                   : 87.5%;    	
-@headings-font-size-small                    : 87.5%;    	
-@headings-font-size-medium                   : 112.5%;    	
-@headings-font-size-large                    : 150%;    	
-@headings-font-size-xlarge                   : 187.5%;    	
-@headings-font-size-xxlarge                  : 262.5%;    	
-@headings-font-size-xxxlarge                 : 225%;    	
-@headings-font-size-xxxxlarge                : 225%;    	
+
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base                            : 16px;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed                        : @line-height-base;
+
+//** Headings font sizes based on font-size-base. XS uses these as default.
+
+@headings-font-size-xsmall                   : 87.5%;
+@headings-font-size-small                    : 87.5%;
+@headings-font-size-medium                   : 112.5%;
+@headings-font-size-large                    : 150%;
+@headings-font-size-xlarge                   : 187.5%;
+@headings-font-size-xxlarge                  : 262.5%;
+@headings-font-size-xxxlarge                 : 225%;
+@headings-font-size-xxxxlarge                : 225%;
 
 @screen-sm-headings-font-size-xsmall         : 87.5%;
 @screen-sm-headings-font-size-small          : 112.5%;
@@ -99,41 +105,38 @@
 @screen-lg-headings-font-size-xxxxlarge      : 337.5%;
 
 //** Headings line-height
-@headings-line-height-xsmall                 : (@headings-font-size-xsmall              + 12.5%);
-@headings-line-height-small                  : (@headings-font-size-small               + 12.5%);
-@headings-line-height-medium                 : (@headings-font-size-medium              + 12.5%);
-@headings-line-height-large                  : (@headings-font-size-large               + 12.5%);
-@headings-line-height-xlarge                 : (@headings-font-size-xlarge              + 12.5%);
-@headings-line-height-xxlarge                : (@headings-font-size-xxlarge             + 12.5%);
-@headings-line-height-xxxlarge               : (@headings-font-size-xxxlarge            + 12.5%);
-@headings-line-height-xxxxlarge              : (@headings-font-size-xxxxlarge           + 12.5%);
-
-@screen-sm-headings-line-height-xsmall       : (@screen-sm-headings-font-size-xsmall    + 12.5%);
-@screen-sm-headings-line-height-small        : (@screen-sm-headings-font-size-small     + 12.5%);
-@screen-sm-headings-line-height-medium       : (@screen-sm-headings-font-size-medium    + 12.5%);
-@screen-sm-headings-line-height-large        : (@screen-sm-headings-font-size-large     + 12.5%);
-@screen-sm-headings-line-height-xlarge       : (@screen-sm-headings-font-size-xlarge    + 12.5%);
-@screen-sm-headings-line-height-xxlarge      : (@screen-sm-headings-font-size-xxlarge   + 12.5%);
-@screen-sm-headings-line-height-xxxlarge     : (@screen-sm-headings-font-size-xxxlarge  + 12.5%);
-@screen-sm-headings-line-height-xxxxlarge    : (@screen-sm-headings-font-size-xxxxlarge + 12.5%);
-
-@screen-md-headings-line-height-xsmall       : (@screen-md-headings-font-size-xsmall    + 12.5%);
-@screen-md-headings-line-height-small        : (@screen-md-headings-font-size-small     + 12.5%);
-@screen-md-headings-line-height-medium       : (@screen-md-headings-font-size-medium    + 12.5%);
-@screen-md-headings-line-height-large        : (@screen-md-headings-font-size-large     + 12.5%);
-@screen-md-headings-line-height-xlarge       : (@screen-md-headings-font-size-xlarge    + 12.5%);
-@screen-md-headings-line-height-xxlarge      : (@screen-md-headings-font-size-xxlarge   + 12.5%);
-@screen-md-headings-line-height-xxxlarge     : (@screen-md-headings-font-size-xxxlarge  + 12.5%);
-@screen-md-headings-line-height-xxxxlarge    : (@screen-md-headings-font-size-xxxxlarge + 12.5%);
-
-@screen-lg-headings-line-height-xsmall       : (@screen-lg-headings-font-size-xsmall    + 12.5%);
-@screen-lg-headings-line-height-small        : (@screen-lg-headings-font-size-small     + 12.5%);
-@screen-lg-headings-line-height-medium       : (@screen-lg-headings-font-size-medium    + 12.5%);
-@screen-lg-headings-line-height-large        : (@screen-lg-headings-font-size-large     + 12.5%);
-@screen-lg-headings-line-height-xlarge       : (@screen-lg-headings-font-size-xlarge    + 12.5%);
-@screen-lg-headings-line-height-xxlarge      : (@screen-lg-headings-font-size-xxlarge   + 12.5%);
-@screen-lg-headings-line-height-xxxlarge     : (@screen-lg-headings-font-size-xxxlarge  + 12.5%);
-@screen-lg-headings-line-height-xxxxlarge    : (@screen-lg-headings-font-size-xxxxlarge + 12.5%);
+@headings-line-height-xsmall                 : (round((2 / (@font-size-base * @headings-font-size-xsmall              / 100) * 100 + 100), 2));
+@headings-line-height-small                  : (round((2 / (@font-size-base * @headings-font-size-small               / 100) * 100 + 100), 2));
+@headings-line-height-medium                 : (round((2 / (@font-size-base * @headings-font-size-medium              / 100) * 100 + 100), 2));
+@headings-line-height-large                  : (round((2 / (@font-size-base * @headings-font-size-large               / 100) * 100 + 100), 2));
+@headings-line-height-xlarge                 : (round((2 / (@font-size-base * @headings-font-size-xlarge              / 100) * 100 + 100), 2));
+@headings-line-height-xxlarge                : (round((2 / (@font-size-base * @headings-font-size-xxlarge             / 100) * 100 + 100), 2));
+@headings-line-height-xxxlarge               : (round((2 / (@font-size-base * @headings-font-size-xxxlarge            / 100) * 100 + 100), 2));
+@headings-line-height-xxxxlarge              : (round((2 / (@font-size-base * @headings-font-size-xxxxlarge           / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-xsmall       : (round((2 / (@font-size-base * @screen-sm-headings-font-size-xsmall    / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-small        : (round((2 / (@font-size-base * @screen-sm-headings-font-size-small     / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-medium       : (round((2 / (@font-size-base * @screen-sm-headings-font-size-medium    / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-large        : (round((2 / (@font-size-base * @screen-sm-headings-font-size-large     / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-xlarge       : (round((2 / (@font-size-base * @screen-sm-headings-font-size-xlarge    / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-xxlarge      : (round((2 / (@font-size-base * @screen-sm-headings-font-size-xxlarge   / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-xxxlarge     : (round((2 / (@font-size-base * @screen-sm-headings-font-size-xxxlarge  / 100) * 100 + 100), 2));
+@screen-sm-headings-line-height-xxxxlarge    : (round((2 / (@font-size-base * @screen-sm-headings-font-size-xxxxlarge / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-xsmall       : (round((2 / (@font-size-base * @screen-md-headings-font-size-xsmall    / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-small        : (round((2 / (@font-size-base * @screen-md-headings-font-size-small     / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-medium       : (round((2 / (@font-size-base * @screen-md-headings-font-size-medium    / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-large        : (round((2 / (@font-size-base * @screen-md-headings-font-size-large     / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-xlarge       : (round((2 / (@font-size-base * @screen-md-headings-font-size-xlarge    / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-xxlarge      : (round((2 / (@font-size-base * @screen-md-headings-font-size-xxlarge   / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-xxxlarge     : (round((2 / (@font-size-base * @screen-md-headings-font-size-xxxlarge  / 100) * 100 + 100), 2));
+@screen-md-headings-line-height-xxxxlarge    : (round((2 / (@font-size-base * @screen-md-headings-font-size-xxxxlarge / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-xsmall       : (round((2 / (@font-size-base * @screen-lg-headings-font-size-xsmall    / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-small        : (round((2 / (@font-size-base * @screen-lg-headings-font-size-small     / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-medium       : (round((2 / (@font-size-base * @screen-lg-headings-font-size-medium    / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-large        : (round((2 / (@font-size-base * @screen-lg-headings-font-size-large     / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-xlarge       : (round((2 / (@font-size-base * @screen-lg-headings-font-size-xlarge    / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-xxlarge      : (round((2 / (@font-size-base * @screen-lg-headings-font-size-xxlarge   / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-xxxlarge     : (round((2 / (@font-size-base * @screen-lg-headings-font-size-xxxlarge  / 100) * 100 + 100), 2));
+@screen-lg-headings-line-height-xxxxlarge    : (round((2 / (@font-size-base * @screen-lg-headings-font-size-xxxxlarge / 100) * 100 + 100), 2));
 
 //** Default fonts
 @font-size-large                             : @headings-font-size-large;
@@ -144,11 +147,6 @@
 @font-size-h4                                : @headings-font-size-large;
 @font-size-h5                                : @headings-font-size-medium;
 @font-size-h6                                : @headings-font-size-small;
-
-//** Unit-less `line-height` for use in components like buttons.
-@line-height-base                            : 16px;
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed                        : @line-height-base;
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family                        : @font-family-sans-serif-semibold;
