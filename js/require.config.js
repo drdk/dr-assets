@@ -20,7 +20,7 @@ require.config({
 		//"dr-media-flash-audio-player": "modules/dr-widget-media/FlashAudioPlayer",
 
 		// third party
-		"jquery": "third/jquery-1.11.0.js",
-		"modernizr": "third/modernizr.js"
+		"jquery": "third/jquery/jquery-1.11.0.js",
+		"modernizr": "third/modernizr/modernizr.js"
 	},
 });
