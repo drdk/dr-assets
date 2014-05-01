@@ -1,0 +1,6 @@
+files:
+	- preload/preload.js
+	- dr/dr.js
+	- lazyloader/lazyloader.js
+	- webfonts/font-support.js
+	- webfonts/font-loader.js

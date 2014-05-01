@@ -26,8 +26,8 @@ require.config({
 	},
 	shims: {
 		//'bootstrap/affix':      { deps: ['jquery'], exports: '$.fn.affix' }, 
-		'bootstrap/alert':      { deps: ['jquery'], exports: '$.fn.alert' },
-		'bootstrap/button':     { deps: ['jquery'], exports: '$.fn.button' },
+		//'bootstrap/alert':      { deps: ['jquery'], exports: '$.fn.alert' },
+		//'bootstrap/button':     { deps: ['jquery'], exports: '$.fn.button' },
 		//'bootstrap/carousel':   { deps: ['jquery'], exports: '$.fn.carousel' },
 		//'bootstrap/collapse':   { deps: ['jquery'], exports: '$.fn.collapse' },
 		//'bootstrap/dropdown':   { deps: ['jquery'], exports: '$.fn.dropdown' },
