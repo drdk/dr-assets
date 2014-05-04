@@ -3,5 +3,3 @@ files:
     - dr/dr.js
     - lazyloader/postpony.js
     - lazyloader/lazyloader.js
-    - webfonts/font-support.js
-    - webfonts/font-loader.js
