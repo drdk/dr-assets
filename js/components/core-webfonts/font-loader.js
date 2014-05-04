@@ -33,4 +33,4 @@
 
 	}
 
-}("dr-webfonts", "assets/css/005/base-webfonts-{{format}}-inline.css", document, fontSupport, window.localStorage));
+}("dr-webfonts", "assets/css/006/fonts-{{format}}.css", document, fontSupport, window.localStorage));
