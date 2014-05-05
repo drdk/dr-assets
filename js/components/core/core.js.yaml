@@ -3,3 +3,4 @@ files:
     - dr/dr.js
     - lazyloader/postpony.js
     - lazyloader/lazyloader.js
+    - dr/cookie-policy.js

@@ -1,16 +1,11 @@
-.font-face (@family, @path, @font-weight: normal) {
-  font-family: @family;
-  src: url("@{path}.eot");
-  src: url("@{path}.eot?#iefix") format("embedded-opentype"),
-       url("@{path}.woff") format("woff"),
-       url("@{path}.ttf") format("truetype"),
-       url("@{path}.svg") format("svg");
-  font-weight: @font-weight;
-}
-
 .font-face (@family, @path, @font-weight: normal, @extension, @format) {
   font-family: @family;
-  src: url("@{path}.@{extension}") format("@{format}");
+  & when (@format = 'eot') {
+    src: url("@{path}.@{extension}");
+  }
+  & when (@format != 'eot') {
+    src: url("@{path}.@{extension}") format("@{format}");
+  }
   font-weight: @font-weight;
 }
 
