@@ -1,11 +1,6 @@
 .font-face (@family, @path, @font-weight: normal, @extension, @format) {
   font-family: @family;
-  & when (@format = 'eot') {
-    src: url("@{path}.@{extension}");
-  }
-  & when (@format != 'eot') {
-    src: url("@{path}.@{extension}") format("@{format}");
-  }
+  src: url("@{path}.@{extension}") format("@{format}");
   font-weight: @font-weight;
 }
 
