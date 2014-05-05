@@ -123,6 +123,17 @@
     }
   }
 
+  &.heading-small,
+  &.heading-medium {
+    @media (min-width: @screen-sm-min) {
+      margin: 20px 0 20px 0;
+    }
+
+    @media (min-width: @screen-md-min) {
+      margin: 30px 0 20px 0;
+    }
+  }
+
 }
 
 p,
@@ -132,4 +143,8 @@ p,
 
 .description {
   .description();
+}
+
+.label {
+  .label();
 }
