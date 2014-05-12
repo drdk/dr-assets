@@ -1,5 +1,5 @@
-/* Modernizr 2.7.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-csscolumns-csstransforms-csstransforms3d-svg-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
+/* Modernizr 2.8.1 (Custom Build) | MIT & BSD
+ * Build: http://modernizr.com/download/#-csscolumns-csstransforms-csstransforms3d-csstransitions-localstorage-touch-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
  */
 ;
 
@@ -7,7 +7,7 @@
 
 window.Modernizr = (function( window, document, undefined ) {
 
-    var version = '2.7.2',
+    var version = '2.8.1',
 
     Modernizr = {},
 
@@ -34,7 +34,6 @@ window.Modernizr = (function( window, document, undefined ) {
 
     domPrefixes = omPrefixes.toLowerCase().split(' '),
 
-    ns = {'svg': 'http://www.w3.org/2000/svg'},
 
     tests = {},
     inputs = {},
@@ -196,7 +195,20 @@ window.Modernizr = (function( window, document, undefined ) {
           props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
           return testDOMProps(props, prefixed, elem);
         }
-    }
+    }    tests['touch'] = function() {
+        var bool;
+
+        if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+          bool = true;
+        } else {
+          injectElementWithStyles(['@media (',prefixes.join('touch-enabled),('),mod,')','{#modernizr{top:9px;position:absolute}}'].join(''), function( node ) {
+            bool = node.offsetTop === 9;
+          });
+        }
+
+        return bool;
+    };
+
 
     tests['csscolumns'] = function() {
         return testPropsAll('columnCount');
@@ -219,9 +231,23 @@ window.Modernizr = (function( window, document, undefined ) {
         }
         return ret;
     };
-    tests['svg'] = function() {
-        return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
+
+
+    tests['csstransitions'] = function() {
+        return testPropsAll('transition');
     };
+
+    tests['localstorage'] = function() {
+        try {
+            localStorage.setItem(mod, mod);
+            localStorage.removeItem(mod);
+            return true;
+        } catch(e) {
+            return false;
+        }
+    };
+
+
     for ( var feature in tests ) {
         if ( hasOwnProp(tests, feature) ) {
                                     featureName  = feature.toLowerCase();
@@ -282,7 +308,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     Modernizr.testStyles    = injectElementWithStyles;    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
-                                                    (enableClasses ? ' js ' + classes.join(' ') : '');
+                                                    (enableClasses ? classes.join(' ') : '');
 
     return Modernizr;
 

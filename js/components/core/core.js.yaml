@@ -1,6 +1,7 @@
 files:
-    - preload/preload.js
+    - load/preload.js
     - dr/dr.js
     - lazyloader/postpony.js
     - lazyloader/lazyloader.js
     - dr/cookie-policy.js
+    - load/postload.js

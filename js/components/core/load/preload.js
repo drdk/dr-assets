@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------------------------------
-| First-load js, before any other script has been loaded.
+| First-load js, run this before any other scripts.
 |--------------------------------------------------------------------------
 */
 
@@ -62,13 +62,13 @@
             var parentUrl = encodeURIComponent(document.location.href);
 
             // Set error details
-            var parameters = "error_message=" + errorMessage + 
-                             "&url=" + url + 
-                             "&line=" + line + 
+            var parameters = "error_message=" + errorMessage +
+                             "&url=" + url +
+                             "&line=" + line +
                              "&parent_url=" + parentUrl;
-            
+
             // Set path to log target
-            var logUrl = "http://www.dr.dk/assets/img/blank.gif";
+            var logUrl = "//www.dr.dk/assets/img/blank.gif";
 
             // Set error details as image parameters
             new Image().src = logUrl + '?' + parameters;

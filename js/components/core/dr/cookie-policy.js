@@ -102,22 +102,4 @@
 		}
 	};
 
-	////////////////////////////////////////////////////////////////////////////////
-	/// Document ready
-	////////////////////////////////////////////////////////////////////////////////
-
-	if (doc.addEventListener) {
-		doc.addEventListener("DOMContentLoaded", function() {
-			doc.removeEventListener("DOMContentLoaded", arguments.callee, false);
-			cookiePolicy.initialize();
-		}, false);
-	} else if (doc.attachEvent) {
-		doc.attachEvent("onreadystatechange", function() {
-			if (doc.readyState === "complete") {
-				doc.detachEvent( "onreadystatechange", arguments.callee );
-				cookiePolicy.initialize();
-			}
-		});
-	}
-
 })(window, document);
