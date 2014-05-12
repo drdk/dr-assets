@@ -76,9 +76,17 @@
 
       imageUri = getImageUri(source, width, height, scaleAfter);
 
-      $this.load(function() {
-        this.style.opacity = 1;
-      });
+      function loadSuccess() {
+        $this.addClass('image-load-success')
+      };
+
+      if ($this.prop('complete')) {
+        loadSuccess();
+      } else {
+        $this.load(function() {
+          loadSuccess();
+        });
+      };
 
       this.onerror = function(e) {
         $this.addClass('image-load-error')

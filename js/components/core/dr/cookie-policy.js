@@ -64,7 +64,7 @@
 
 			// Container
 			this.container = doc.createElement("div");
-			this.container.className = "dr-cookie-info-box";
+			this.container.className = "cookie-info-box";
 			var host = location.hostname.toLowerCase();
 			var data = this.__data;
 			if (host === "mobil.dr.dk" || host === "mobilstage.dr.dk") {
