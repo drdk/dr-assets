@@ -7,12 +7,8 @@
 
 	$(document).ready(function() {
 
-		console.log (DR);
-
 		// Start image lazy loader
-		//$(".image-wrap > img").lazyload();
-
-		//if ()
+		$(".image-wrap > img").lazyload();
 
 		// Init cookie policy
 		//cookiePolicy.initialize();
