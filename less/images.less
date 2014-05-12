@@ -1,0 +1,25 @@
+.image-wrap {
+  > img {
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+    width: 100%;
+    height: auto;
+
+    .csstransitions & {
+      opacity: 0;
+      transition: opacity .3s ease-in;
+    }
+
+    &.image-load-success {
+      opacity: 1;
+    }
+
+    &.image-load-error {
+      background: #EEE none 50% 50%;
+      opacity: 1;
+    }
+
+  }
+
+}
