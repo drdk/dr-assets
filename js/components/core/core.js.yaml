@@ -2,6 +2,6 @@ files:
     - load/preload.js
     - dr/dr.js
     - lazyloader/postpony.js
-    - lazyloader/lazyloader.js
+    - lazyloader/image.js
     - dr/cookie-policy.js
     - load/postload.js
