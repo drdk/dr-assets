@@ -33,4 +33,4 @@
 
 	}
 
-}("dr-webfonts", "http://www.dr.dk/assets/css/006/fonts-{{format}}.css", document, fontSupport, window.localStorage));
+}("dr-webfonts", "//www.dr.dk/assets/css/006/fonts-{{format}}.css", document, fontSupport, window.localStorage));

@@ -1,3 +1,11 @@
+/*
+|--------------------------------------------------------------------------
+| Cookie Policy box
+|--------------------------------------------------------------------------
+|
+| Not for hybrid apps, only web. Uses cookies to save toggle state.
+*/
+
 (function (win, doc) {
 
 	// detect cookie support/blockage

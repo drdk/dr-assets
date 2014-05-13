@@ -1,6 +1,7 @@
 files:
-    - load/preload.js
+    - load/pre-load.js
     - dr/dr.js
-    - lazyloader/image.js
+    - load/lazyload.js
     - dr/cookie-policy.js
-    - load/postload.js
+    - load/post-load.js
+    - dr/require-config.js
