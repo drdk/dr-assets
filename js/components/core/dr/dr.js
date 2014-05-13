@@ -28,6 +28,8 @@
     win.DR.load = load;
   }
 
+  DR.version = "6.0";
+
   win.DR = DR
 
 }(window));

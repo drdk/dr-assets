@@ -6,9 +6,8 @@
 | Uses jQuery.
 */
 
-(function(win, doc) {
-
-  define(['jquery'], function($) {
+(function(win) {
+  win.define("lazyloader", function() {
 
     $.fn.lazyload = function(options, callback) {
       if (options == null) {
@@ -133,5 +132,4 @@
     };
 
   });
-
-})(window, document);
+}(window));

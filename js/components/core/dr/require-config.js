@@ -9,7 +9,6 @@
 (function(win) { 
 
   var config = {
-    baseUrl: ((location.hostname === "beta.dr.dk" || location.hostname === "localhost") ? "//www.dr.dk" : "") + "/assets/js/",
     paths: {
       // first party        
       //"dr-media-player-factory": "modules/dr-widget-media",
@@ -30,59 +29,55 @@
       //"dr-media-flash-audio-player": "modules/dr-widget-media/FlashAudioPlayer",
 
       // third party
-      "jquery": "third/jquery/jquery-1.11.0.js",
-      "fastclick": "third/fastclick/fastclick.js"
+
     },
     shim: {
-      'lazyload': { deps: ['jquery'], exports: '$.fn.lazyload' }
     }
   };
 
   if (win.DR.require == null) {
-    win.DR.require = {
-      register: function(options) {
-        register(options);
-      }
-    };
+    win.DR.require = {};
+  } else if (win.DR.require.register != null) {
+    register(win.DR.require.register);
+  } else {
+    initConfig(config);
   };
 
-  for (key in config) {
-    if (win.DR.require.config[key] == null) {
-      win.DR.load[key] = load[key];
-    }
+  win.DR.require.register = function(options) {
+    if (options == null) {
+      return false;
+    };
+    register(options);
+    return;
   }
 
-  initConfig(config);
-
   function register(options) {
-    
-    var configChange = false;
-
-    if (options == null) {
-      return;
-    };
-
-    if ((options.type === "paths") && (options.name != null) && (options.path != null)) {
-      config.paths[name] = options.path;
-      configChange = true;
-    } else if ((options.type === "shims") && (options.name != null) && (options.exports != null)) {
-      config.shim[name] = options.path;
-      if (options.deps != null) {
-        config.shim[name].deps = options.deps;
-      }
-      configChange = true;
-    };
-
-    if (configChange) {
-      require.config(config);
+    if (Object.prototype.toString.call( options ) === '[object Object]') {
+      options = [options];
     }
-
+    if (Object.prototype.toString.call( options ) !== '[object Array]') {
+      return false;
+    };
+    var configChange = false;
+    for (var i = 0; i < options.length; i++) {
+      if ((options[i].type === "paths") && (options[i].name != null) && (options[i].path != null)) {
+        if (options[i].path.slice(-3) === ".js") {
+          options[i].path = options[i].path.slice(0, -3);
+        }
+        config.paths[options[i].name] = options[i].path;
+        configChange = true;
+      };
+    };
+    if (configChange) {
+      initConfig(config);
+    };
     return;
   };
 
   function initConfig(config) {
-    if ((win.config != null) && (win.require != null)) {
+    if ((config != null) && (win.require != null)) {
       require.config(config);
+      DR.require.config = config;
     };   
     return; 
   };
