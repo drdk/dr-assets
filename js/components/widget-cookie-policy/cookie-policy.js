@@ -8,18 +8,6 @@
 
 (function (win, doc) {
   win.define("cookie-policy", function() {
-    // detect cookie support/blockage
-    if (!doc.cookie) {
-      doc.cookie = "cookiePolicyDismissedTest=true";
-      if (!doc.cookie.match(/(?:^|[; ]+)cookiePolicyDismissed=yes(?:;|$)/)) {
-        return; // cookies not supported/blocked
-      }
-      doc.cookie = "cookiePolicyDismissedTest=;expires=" + expireIn(-1);
-    }
-    // if already dismissed 
-    else if (doc.cookie.match(/(?:^|[; ]+)cookiePolicyDismissed=yes(?:;|$)/)) {
-      return;
-    }
 
     function expireIn(days) {
       var expires = new Date();
@@ -70,6 +58,19 @@
 
       initialize: function () {
 
+        // detect cookie support/blockage
+        if (!doc.cookie) {
+          doc.cookie = "cookiePolicyDismissedTest=true";
+          if (!doc.cookie.match(/(?:^|[; ]+)cookiePolicyDismissed=yes(?:;|$)/)) {
+            return; // cookies not supported/blocked
+          }
+          doc.cookie = "cookiePolicyDismissedTest=;expires=" + expireIn(-1);
+        }
+        // if already dismissed 
+        else if (doc.cookie.match(/(?:^|[; ]+)cookiePolicyDismissed=yes(?:;|$)/)) {
+          return;
+        }
+
         // Container
         this.container = doc.createElement("div");
         this.container.className = "cookie-info-box";
@@ -111,7 +112,7 @@
     };
 
     return {
-      initialize: cookiePolicy.initialize()
+      initialize: function() { cookiePolicy.initialize() }
     };
   });
 })(window, document);

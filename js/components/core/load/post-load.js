@@ -27,7 +27,7 @@
 
         if (autoload.cookiePolicy) {
           // Load cookie policy
-          require(['cookie-policy'], function() {
+          require(['cookie-policy'], function(cookiePolicy) {
             cookiePolicy.initialize();
           });
         };
