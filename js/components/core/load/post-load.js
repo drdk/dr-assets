@@ -14,23 +14,23 @@
 
     $(doc).ready(function() {
 
-      if ((DR != null) && (DR.clientInfo != null)) {
+      if ((DR != null) && (DR.autoload != null)) {
 
-        var clientInfo = DR.clientInfo;
+        var autoload = DR.autoload;
 
-        if (clientInfo.lazyLoader) {
+        if (autoload.lazyLoader) {
           // Load image lazy loader
           require(['lazyloader'], function() {
             $(".image-wrap > img").lazyload();
           });
         }
 
-        //if (autoload.cookiePolicy) {
-        //  // Load cookie policy
-        //  require(['cookie-policy'], function() {
-        //    cookiePolicy.initialize();
-        //  });
-        //};
+        if (autoload.cookiePolicy) {
+          // Load cookie policy
+          require(['cookie-policy'], function() {
+            cookiePolicy.initialize();
+          });
+        };
         
         //if (autoload.footer) {
         //  // Load footer
@@ -39,7 +39,7 @@
         //  });
         //};
 
-        if (clientInfo.fromDK) {
+        if (autoload.fromDK) {
           // Load detect geo denmark
           require(["client-info-from-dk"], function(fromDK) {
             fromDK.initialize();

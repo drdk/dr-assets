@@ -8,7 +8,6 @@
 
 (function(win) {
   win.define("DR", function() {
-    console.log ("WASAD");
     var DR = win.DR || {};
 
     // Default auto load
