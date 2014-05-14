@@ -111,7 +111,7 @@
     };
 
     return {
-      initialize: cookiePolicy.initialize();
+      initialize: cookiePolicy.initialize()
     };
   });
 })(window, document);

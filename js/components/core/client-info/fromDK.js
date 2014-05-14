@@ -20,7 +20,7 @@
       });
     };
     return {
-      initialize: fromDK();
+      initialize: function() { fromDK() }
     }
   });
 }(window));

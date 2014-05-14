@@ -8,6 +8,7 @@
 
 (function(win) {
   win.define("DR", function() {
+    console.log ("WASAD");
     var DR = win.DR || {};
 
     // Default auto load
@@ -24,18 +25,28 @@
     };
 
     // Inherit defaults
-    if (win.DR.autoload != null) {
-      for (key in autoload) {
-        if (win.DR.autoload[key] == null) {
-          win.DR.autoload[key] = autoload[key];
+    if (DR.autoload != null) {
+      for (var key in autoload) {
+        if (DR.autoload[key] == null) {
+          DR.autoload[key] = autoload[key];
         }
       }
     } else {
-      win.DR.autoload = autoload;
+      DR.autoload = autoload;
+    }
+
+    // Inherit defaults
+    if (DR.clientInfo != null) {
+      for (var key in clientInfo) {
+        if (DR.clientInfo[key] == null) {
+          DR.clientInfo[key] = clientInfo[key];
+        }
+      }
+    } else {
+      DR.clientInfo = clientInfo;
     }
 
     DR.version = "6.0";
-    DR.clientInfo = {};
 
     DR.addClientInfo = function(name, bool) {
       if ((name != null) && (Object.prototype.toString.call(bool) === "[object Boolean]")) {

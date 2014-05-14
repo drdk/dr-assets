@@ -43,7 +43,7 @@
       register(DR.require.register);
     } else {
       initConfig(config);
-    };
+    }
 
     DR.require.register = function(options) {
       if (options == null) {
@@ -72,7 +72,7 @@
       };
       if (configChange) {
         initConfig(config);
-      };
+      }
       return;
     };
 

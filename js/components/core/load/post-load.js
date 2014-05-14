@@ -14,11 +14,11 @@
 
     $(doc).ready(function() {
 
-      if ((DR != null) && (DR.autoload != null)) {
+      if ((DR != null) && (DR.clientInfo != null)) {
 
-        var autoload = DR.autoload;
+        var clientInfo = DR.clientInfo;
 
-        if (autoload.lazyLoader) {
+        if (clientInfo.lazyLoader) {
           // Load image lazy loader
           require(['lazyloader'], function() {
             $(".image-wrap > img").lazyload();
@@ -39,10 +39,10 @@
         //  });
         //};
 
-        if (autoload.detectGeoDK) {
+        if (clientInfo.fromDK) {
           // Load detect geo denmark
-          require(["detect-geo-dk"], function(detectGeoDK) {
-            detectGeoDK.initialize();
+          require(["client-info-from-dk"], function(fromDK) {
+            fromDK.initialize();
           });
         };
       };
