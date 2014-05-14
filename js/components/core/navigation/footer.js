@@ -1,19 +1,27 @@
 (function(win) {
-  win.define("navigation-footer", function() {
-
-    $.ajax(DR.TV.basePath + "/footer", {
-      type: "GET",
-      dataType: "html",
-      error: function(jqXHR, textStatus, errorThrown) {
-        return console.log("AJAX Error: " + textStatus);
-      },
-      success: function(data, textStatus, jqXHR) {
-        $('body').append(data);
-        $('#globalfooter .nav-wrapper').addClass('container-fluid');
-        return $('.disclaimer-section div').addClass('container-fluid');
+  win.define("navigation-footer", ["jquery"] function() {
+    var footer = function() { 
+      var defaultBasePathSuffix = "dr.dk",
+          basePath = "";
+      if (win.location.hostname.indexOf(defaultBasePathSuffix, win.location.hostname.length - defaultBasePathSuffix.length) === -1) {
+        basePath = "//" + defaultBasePathSuffix;
       }
-    });
-
+      $.ajax(basePath + "/drdktopbar/Navigation/RawHtmlFooter", {
+        type: "GET",
+        dataType: "html",
+        error: function(jqXHR, textStatus, errorThrown) {
+          return console.log("ajax request error for footer: " + textStatus);
+        },
+        success: function(data, textStatus, jqXHR) {
+          $('body').append(data);
+          /*$('#globalfooter .nav-wrapper').addClass('container-fluid');
+          $('.disclaimer-section div').addClass('container-fluid');*/
+          return;
+        }
+      });
+    return {
+      initialize: function() { footer() }
+    }
   });
 }(window));
 

@@ -32,15 +32,15 @@
           });
         };
         
-        //if (autoload.footer) {
-        //  // Load footer
-        //  require(['footer'], function() {
-        //    footer.initialize();
-        //  });
-        //};
+        if (autoload.footer) {
+          // Load footer
+          require(['navigation-footer'], function(footer) {
+            footer.initialize();
+          });
+        };
 
         if (autoload.fromDK) {
-          // Load detect geo denmark
+          // Load client info: "from denmark"
           require(["client-info-from-dk"], function(fromDK) {
             fromDK.initialize();
           });
