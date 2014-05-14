@@ -7,31 +7,40 @@
 */
 
 (function(win) {
+  win.define("DR", function() {
+    var DR = win.DR || {};
 
-  var DR = win.DR || {};
+    // Defaults
+    var autoload = {
+      lazyLoader: true,
+      cookiePolicy: true,
+      topNavigation: true,
+      footer: true,
+      testGeoDK: false
+    };
 
-  // Defaults
-  var autoload = {
-    lazyLoader: true,
-    cookiePolicy: true,
-    topNavigation: true,
-    footer: true,
-    testGeoDK: false
-  };
-
-  // Inherit defaults
-  if (win.DR.autoload != null) {
-    for (key in autoload) {
-      if (win.DR.autoload[key] == null) {
-        win.DR.autoload[key] = autoload[key];
+    // Inherit defaults
+    if (win.DR.autoload != null) {
+      for (key in autoload) {
+        if (win.DR.autoload[key] == null) {
+          win.DR.autoload[key] = autoload[key];
+        }
       }
+    } else {
+      win.DR.autoload = autoload;
     }
-  } else {
-    win.DR.autoload = autoload;
-  }
 
-  DR.version = "6.0";
+    DR.version = "6.0";
+    DR.tests = {};
 
-  win.DR = DR
+    DR.addTest = function(name, bool) {
+      if ((name != null) && (Object.prototype.toString.call(bool) === "[object Boolean]")) {
+        DR.tests[name] = bool;
+      }
+    };
 
+    win.DR = DR;
+
+    return DR;
+  });
 }(window));

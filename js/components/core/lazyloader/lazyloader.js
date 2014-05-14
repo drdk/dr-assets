@@ -2,14 +2,12 @@
 |--------------------------------------------------------------------------
 | DR Image Lazy Loader
 |--------------------------------------------------------------------------
-|
-| Uses jQuery.
 */
 
 (function(win) {
-  win.define("lazyloader", function() {
+  win.define("lazyloader", ["jquery"], function($) {
 
-    $.fn.lazyload = function(options, callback) {
+    var lazyloader = function(options, callback) {
       if (options == null) {
 
         options = {};
@@ -130,6 +128,8 @@
       return this;
 
     };
+
+    $.fn.lazyload = lazyloader;
 
   });
 }(window));

@@ -8,43 +8,47 @@
 | on the DR Global Object settings.
 */
 
-(function(win, doc, $) {
+(function(win, doc) {
 
-  $(document).ready(function() {
+  win.require(['DR', 'jquery', 'require'], function(DR, $, require) {
 
-    if ((win.DR != null) && (win.DR.autoload != null)) {
+    $(doc).ready(function() {
 
-      var autoload = win.DR.autoload;
+      if ((DR != null) && (DR.autoload != null)) {
 
-      if (autoload.lazyLoader) {
-        // Load image lazy loader
-        require(['lazyloader'], function() {
-          $(".image-wrap > img").lazyload();
-        });
-      }
+        var autoload = DR.autoload;
 
-      //if (autoload.cookiePolicy) {
-      //  // Load cookie policy
-      //  require(['cookie-policy'], function() {
-      //    cookiePolicy.initialize();
-      //  });
-      //};
-      
-      //if (autoload.footer) {
-      //  // Load footer
-      //  require(['footer'], function() {
-      //    footer.initialize();
-      //  });
-      //};
+        if (autoload.lazyLoader) {
+          // Load image lazy loader
+          require(['lazyloader'], function() {
+            $(".image-wrap > img").lazyload();
+          });
+        }
 
-      //if (autoload.geoCheck) {
-      //  // Load footer
-      //  require(['footer'], function() {
-      //    footer.initialize();
-      //  });
-      //};
-    };
+        //if (autoload.cookiePolicy) {
+        //  // Load cookie policy
+        //  require(['cookie-policy'], function() {
+        //    cookiePolicy.initialize();
+        //  });
+        //};
+        
+        //if (autoload.footer) {
+        //  // Load footer
+        //  require(['footer'], function() {
+        //    footer.initialize();
+        //  });
+        //};
+
+        //if (autoload.geoCheck) {
+        //  // Load footer
+        //  require(['footer'], function() {
+        //    footer.initialize();
+        //  });
+        //};
+      };
+
+    });
 
   });
   
-})(window, document, window.jQuery);
+})(window, document);
