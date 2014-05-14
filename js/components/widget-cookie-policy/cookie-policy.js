@@ -110,6 +110,8 @@
       }
     };
 
-    return cookiePolicy;
+    return {
+      initialize: cookiePolicy.initialize();
+    };
   });
 })(window, document);

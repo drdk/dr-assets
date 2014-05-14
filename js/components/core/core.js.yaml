@@ -1,7 +1,6 @@
 files:
   - load/pre-load.js
   - dr/dr.js
-  - require/preloaded-defines.js
   - require/require-config.js
   - lazyloader/lazyloader.js
   - ../widget-cookie-policy/cookie-policy.js

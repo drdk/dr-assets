@@ -129,7 +129,7 @@
 
     };
 
-    $.fn.lazyload = lazyloader;
+    return $.fn.lazyload = lazyloader;
 
   });
 }(window));
