@@ -1,5 +1,5 @@
 (function(win) {
-  win.define("navigation-footer", ["jquery"] function() {
+  win.define("navigation-footer", ["jquery"], function($) {
     var footer = function() { 
       var defaultBasePathSuffix = "dr.dk",
           basePath = "";
@@ -13,15 +13,14 @@
           return console.log("ajax request error for footer: " + textStatus);
         },
         success: function(data, textStatus, jqXHR) {
-          $('body').append(data);
+          return $('body').append(data);
           /*$('#globalfooter .nav-wrapper').addClass('container-fluid');
           $('.disclaimer-section div').addClass('container-fluid');*/
-          return;
         }
       });
+    };
     return {
       initialize: function() { footer() }
     }
   });
 }(window));
-
