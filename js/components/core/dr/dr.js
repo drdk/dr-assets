@@ -10,13 +10,17 @@
   win.define("DR", function() {
     var DR = win.DR || {};
 
-    // Defaults
+    // Default auto load
     var autoload = {
       lazyLoader: true,
       cookiePolicy: true,
       topNavigation: true,
-      footer: true,
-      detectGeoDK: false
+      footer: true
+    };
+
+    // Default client info
+    var clientInfo = {
+      fromDK: false
     };
 
     // Inherit defaults
@@ -31,11 +35,11 @@
     }
 
     DR.version = "6.0";
-    DR.detections = {};
+    DR.clientInfo = {};
 
-    DR.addDetection = function(name, bool) {
+    DR.addClientInfo = function(name, bool) {
       if ((name != null) && (Object.prototype.toString.call(bool) === "[object Boolean]")) {
-        DR.detections[name] = bool;
+        DR.clientInfo[name] = bool;
       }
     };
 

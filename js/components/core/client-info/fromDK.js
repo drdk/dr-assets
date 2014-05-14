@@ -5,22 +5,22 @@
 */
 
 (function(win) {
-  win.define("detect-geo-dk", ["DR", "jquery"], function(DR, $) {
-    var geoDK = function() { 
+  win.define("client-info-from-dk", ["DR", "jquery"], function(DR, $) {
+    var fromDK = function() { 
       $.ajax("http://geo.dr.dk/DR/DR.CheckIP.IsDanish/", {
         type: "GET",
         dataType: "html",
         error: function(jqXHR, textStatus, errorThrown) {
-          console.log("AJAX Error: " + textStatus);
+          console.log("Ajax geo detection request error: " + textStatus);
           return false;
         },
         success: function(data, textStatus, jqXHR) {
-          return DR.addDetection("geoDK", (data === 'true'));
+          return DR.addClientInfo("fromDK", (data === 'true'));
         }
       });
     };
     return {
-      initialize: geoDK();
+      initialize: fromDK();
     }
   });
 }(window));
