@@ -40,9 +40,9 @@
         //};
 
         if (autoload.detectGeoDK) {
-          // Load detectGeoDK
+          // Load detect geo denmark
           require(["detect-geo-dk"], function(detectGeoDK) {
-            detectGeoDK.init();
+            detectGeoDK.initialize();
           });
         };
       };
