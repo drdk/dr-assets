@@ -5,5 +5,5 @@ files:
   - require/require-config.js
   - lazyloader/lazyloader.js
   - ../widget-cookie-policy/cookie-policy.js
-  - modernizr-tests/geo-dk.js
+  - detections/geo-dk.js
   - load/post-load.js

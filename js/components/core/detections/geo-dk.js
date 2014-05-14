@@ -7,9 +7,12 @@
 */
 
 (function(win) {
-  win.define("modernizr-geo-dk", ["DR", "jquery"], function(DR, $) {
-    var bool = geoDK();
-    DR.addTest("geoDK", bool);
+  win.define("detect-geo-dk", ["DR", "jquery"], function(DR, $) {
+    var init = function() {
+      var bool = geoDK();
+      DR.addDetection("geoDK", bool);
+      return bool;
+    };
 
     var geoDK = function() {
       $.ajax("http://geo.dr.dk/DR/DR.CheckIP.IsDanish/", {

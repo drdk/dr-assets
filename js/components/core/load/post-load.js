@@ -39,12 +39,12 @@
         //  });
         //};
 
-        //if (autoload.geoCheck) {
-        //  // Load footer
-        //  require(['footer'], function() {
-        //    footer.initialize();
-        //  });
-        //};
+        if (autoload.detectGeoDK) {
+          // Load detectGeoDK
+          require(["detect-geo-dk"], function(detectGeoDK) {
+            detectGeoDK.init();
+          });
+        };
       };
 
     });

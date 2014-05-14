@@ -16,7 +16,7 @@
       cookiePolicy: true,
       topNavigation: true,
       footer: true,
-      testGeoDK: false
+      detectGeoDK: false
     };
 
     // Inherit defaults
@@ -31,11 +31,11 @@
     }
 
     DR.version = "6.0";
-    DR.tests = {};
+    DR.detections = {};
 
-    DR.addTest = function(name, bool) {
+    DR.addDetection = function(name, bool) {
       if ((name != null) && (Object.prototype.toString.call(bool) === "[object Boolean]")) {
-        DR.tests[name] = bool;
+        DR.detections[name] = bool;
       }
     };
 
