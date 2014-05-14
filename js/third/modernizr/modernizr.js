@@ -1,5 +1,5 @@
 /* Modernizr 2.8.1 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-csscolumns-csstransforms-csstransforms3d-csstransitions-localstorage-touch-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
+ * Build: http://modernizr.com/download/#-csscolumns-csstransforms-csstransforms3d-csstransitions-localstorage-touch-cssclasses-addtest-teststyles-testprop-testallprops-prefixes-domprefixes
  */
 ;
 
@@ -308,7 +308,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     Modernizr.testStyles    = injectElementWithStyles;    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
-                                                    (enableClasses ? classes.join(' ') : '');
+                                                    (enableClasses ? ' js ' + classes.join(' ') : '');
 
     return Modernizr;
 

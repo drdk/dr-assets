@@ -10,17 +10,41 @@
 
 (function(win, doc, $) {
 
-	$(document).ready(function() {
+  $(document).ready(function() {
 
-		require(['lazyloader'], function() {
-			// Start image lazy loader
-			$(".image-wrap > img").lazyload();
-		});
+    if ((win.DR != null) && (win.DR.autoload != null)) {
 
+      var autoload = win.DR.autoload;
 
+      if (autoload.lazyLoader) {
+        // Load image lazy loader
+        require(['lazyloader'], function() {
+          $(".image-wrap > img").lazyload();
+        });
+      }
 
-		// Init cookie policy
-		//cookiePolicy.initialize();
-	});
-	
+      //if (autoload.cookiePolicy) {
+      //  // Load cookie policy
+      //  require(['cookie-policy'], function() {
+      //    cookiePolicy.initialize();
+      //  });
+      //};
+      
+      //if (autoload.footer) {
+      //  // Load footer
+      //  require(['footer'], function() {
+      //    footer.initialize();
+      //  });
+      //};
+
+      //if (autoload.geoCheck) {
+      //  // Load footer
+      //  require(['footer'], function() {
+      //    footer.initialize();
+      //  });
+      //};
+    };
+
+  });
+  
 })(window, document, window.jQuery);

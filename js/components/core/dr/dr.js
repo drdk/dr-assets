@@ -11,21 +11,23 @@
   var DR = win.DR || {};
 
   // Defaults
-  var load = {
+  var autoload = {
+    lazyLoader: true,
     cookiePolicy: true,
     topNavigation: true,
-    footer: true
+    footer: true,
+    testGeoDK: false
   };
 
   // Inherit defaults
-  if (win.DR.load != null) {
-    for (key in load) {
-      if (win.DR.load[key] == null) {
-        win.DR.load[key] = load[key];
+  if (win.DR.autoload != null) {
+    for (key in autoload) {
+      if (win.DR.autoload[key] == null) {
+        win.DR.autoload[key] = autoload[key];
       }
     }
   } else {
-    win.DR.load = load;
+    win.DR.autoload = autoload;
   }
 
   DR.version = "6.0";

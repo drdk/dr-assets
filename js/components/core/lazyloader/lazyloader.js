@@ -49,10 +49,10 @@
 
         src = settings.imageBasePath
                + "?server=" + "www.dr.dk"
-               + "&amp;file=" + src
-               + "&amp;w=" + width
-               + "&amp;h=" + height
-               + "&amp;scaleAfter=" + scaleAfter
+               + "&file=" + src
+               + "&w=" + width
+               + "&h=" + height
+               + "&scaleAfter=" + scaleAfter
 
         return src;
       };

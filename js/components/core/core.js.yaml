@@ -1,7 +1,9 @@
 files:
-    - load/pre-load.js
-    - dr/dr.js
-    - load/image-lazyloader.js
-    - dr/cookie-policy.js
-    - load/post-load.js
-    - dr/require-config.js
+  - load/pre-load.js
+  - dr/dr.js
+  - require/preloaded-defines.js
+  - require/require-config.js
+  - lazyloader/lazyloader.js
+  - ../widget-cookie-policy/cookie-policy.js
+  - modernizr-tests/geo-dk.js
+  - load/post-load.js
