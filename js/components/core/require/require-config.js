@@ -7,7 +7,7 @@
 */
 
 (function(win) { 
-  require(['DR', 'require'], function(DR, require) {
+  win.require(['DR'], function(DR) {
     var config = {
       paths: {
         // first party        
@@ -75,11 +75,11 @@
     };
 
     function initConfig(config) {
-      if ((config != null) && (require != null)) {
-        require.config(config);
+      if ((config != null) && (win.require != null)) {
+        win.require.config(config);
         DR.require.config = config;
-        if ((require.s != null) && (require.s.contexts != null) && (require.s.contexts['_'] != null) && (require.s.contexts['_'].registry != null)) {
-          DR.require.registry = require.s.contexts['_'].registry;
+        if ((win.require.s != null) && (win.require.s.contexts != null) && (win.require.s.contexts['_'] != null) && (win.require.s.contexts['_'].registry != null)) {
+          DR.require.registry = win.require.s.contexts['_'].registry;
         };
       };   
       return; 

@@ -10,7 +10,7 @@
 
 (function(win, doc) {
 
-  win.require(['DR', 'jquery', 'require'], function(DR, $, require) {
+  win.require(['DR', 'jquery'], function(DR, $) {
 
     $(doc).ready(function() {
 
