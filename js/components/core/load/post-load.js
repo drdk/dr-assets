@@ -34,25 +34,23 @@
         
         if (autoload.footer) {
           // Load footer
-          if (autoload.footer === true) {
-            args = [];
-          } else {
-            args = autoload.footer;
+          var footerArgs = [];
+          if (autoload.footer !== true) {
+            footerArgs = autoload.footer;
           }
           require(['navigation-footer'], function(footer) {
-            footer.initialize.apply(null, args);
+            footer.initialize.apply(null, footerArgs);
           });
         };
 
         if (autoload.fromDK) {
           // Load client info from dk module
-          if (autoload.fromDK === true) {
-            args = [];
-          } else {
-            args = autoload.fromDK;
+          var fromDKargs = [];
+          if (autoload.fromDK !== true) {
+            fromDKargs = autoload.fromDK;
           }
           require(["client-info-from-dk"], function(fromDK) {
-            fromDK.initialize.apply(null, args);
+            fromDK.initialize.apply(null, fromDKargs);
           });
         };
       };
