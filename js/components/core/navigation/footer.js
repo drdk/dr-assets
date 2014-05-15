@@ -2,7 +2,7 @@
   win.define("navigation-footer", ["jquery"], function($) {
     var footer = function(options, callback) { 
       var endpointUrl = "//www.dr.dk/drdktopbar/Navigation/RawHtmlFooter"
-      if (options =! null) {
+      if (options != null) {
         if (options.proxyUrl != null) {
           endpointUrl = options.proxyUrl + endpointUrl;
         }

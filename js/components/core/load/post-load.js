@@ -34,18 +34,23 @@
         
         if (autoload.footer) {
           // Load footer
+          if (autoload.footer === true) {
+            args = [];
+          } else {
+            args = autoload.footer;
+          }
           require(['navigation-footer'], function(footer) {
-            footer.initialize();
+            footer.initialize.apply(null, args);
           });
         };
 
         if (autoload.fromDK) {
+          // Load client info from dk module
           if (autoload.fromDK === true) {
             args = [];
           } else {
             args = autoload.fromDK;
           }
-          // Load client info: "from denmark"
           require(["client-info-from-dk"], function(fromDK) {
             fromDK.initialize.apply(null, args);
           });
