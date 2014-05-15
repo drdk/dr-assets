@@ -6,8 +6,14 @@
 
 (function(win) {
   win.define("client-info-from-dk", ["DR", "jquery"], function(DR, $) {
-    var fromDK = function() { 
-      $.ajax("http://geo.dr.dk/DR/DR.CheckIP.IsDanish/", {
+    var fromDK = function(options, callback) { 
+      var endpointUrl = "http://geo.dr.dk/DR/DR.CheckIP.IsDanish/"
+      if (options =! null) {
+        if (options.proxyUrl != null) {
+          endpointUrl = options.proxyUrl + endpointUrl;
+        }
+      }
+      $.ajax(endpointUrl, {
         type: "GET",
         dataType: "html",
         error: function(jqXHR, textStatus, errorThrown) {
@@ -15,12 +21,17 @@
           return false;
         },
         success: function(data, textStatus, jqXHR) {
-          return DR.addClientInfo("fromDK", (data === 'true'));
+          var result = (data === 'true');
+          DR.addClientInfo("fromDK", result);
+          if (callback != null) {
+            callback(result)
+          }
+          return;
         }
       });
     };
     return {
-      initialize: function() { fromDK() }
+      initialize: function(options, callback) { fromDK(options, callback) }
     }
   });
 }(window));

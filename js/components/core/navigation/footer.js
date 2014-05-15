@@ -1,26 +1,29 @@
 (function(win) {
   win.define("navigation-footer", ["jquery"], function($) {
-    var footer = function() { 
-      var defaultBasePathSuffix = "dr.dk",
-          basePath = "";
-      if (win.location.hostname.indexOf(defaultBasePathSuffix, win.location.hostname.length - defaultBasePathSuffix.length) === -1) {
-        basePath = "//" + defaultBasePathSuffix;
+    var footer = function(options, callback) { 
+      var endpointUrl = "//www.dr.dk/drdktopbar/Navigation/RawHtmlFooter"
+      if (options =! null) {
+        if (options.proxyUrl != null) {
+          endpointUrl = options.proxyUrl + endpointUrl;
+        }
       }
-      $.ajax(basePath + "/drdktopbar/Navigation/RawHtmlFooter", {
+      $.ajax(endpointUrl, {
         type: "GET",
         dataType: "html",
         error: function(jqXHR, textStatus, errorThrown) {
           return console.log("ajax request error for footer: " + textStatus);
         },
         success: function(data, textStatus, jqXHR) {
-          return $('body').append(data);
-          /*$('#globalfooter .nav-wrapper').addClass('container-fluid');
-          $('.disclaimer-section div').addClass('container-fluid');*/
+          $('body').append(data);
+          if (callback != null) {
+            callback(data)
+          }
+          return;
         }
       });
     };
     return {
-      initialize: function() { footer() }
+      initialize: function(options, callback) { footer(options, callback) }
     }
   });
 }(window));
