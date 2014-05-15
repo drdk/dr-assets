@@ -40,9 +40,14 @@
         };
 
         if (autoload.fromDK) {
+          if (autoload.fromDK === true) {
+            args = [];
+          } else {
+            args = autoload.fromDK;
+          }
           // Load client info: "from denmark"
           require(["client-info-from-dk"], function(fromDK) {
-            fromDK.initialize();
+            fromDK.initialize.apply(null, args);
           });
         };
       };
