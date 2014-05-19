@@ -1,5 +1,5 @@
 (function(win) {
-  win.define("navigation-footer", ["DR", "jquery"], function($) {
+  win.define("navigation-footer", ["DR", "jquery"], function(DR, $) {
     var footer = function(options, callback) { 
       var endpointUrl = DR.basePath + "/drdktopbar/Navigation/RawHtmlFooter"
       if (DR.proxyUrl != null) {
