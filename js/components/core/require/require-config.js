@@ -7,10 +7,9 @@
 */
 
 (function(win) { 
-  win.require(['DR'], function(DR) {
-    var defaultBasePathSuffix = ".dr.dk"
+  win.require(["DR"], function(DR) {
     var config = {
-      baseUrl: ((win.location.hostname.indexOf(defaultBasePathSuffix, win.location.hostname.length - defaultBasePathSuffix.length) === -1) ? "//www.dr.dk" : "") + "/assets/js/",
+      baseUrl: DR.basePath + "/assets/js/",
       paths: {
         // first party        
         //"dr-media-player-factory": "modules/dr-widget-media",
@@ -31,7 +30,6 @@
         //"dr-media-flash-audio-player": "modules/dr-widget-media/FlashAudioPlayer",
 
         // third party
-        "fastclick": "005/third/fastclick"
       },
       shim: {
       }

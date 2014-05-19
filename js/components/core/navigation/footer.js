@@ -1,11 +1,9 @@
 (function(win) {
-  win.define("navigation-footer", ["jquery"], function($) {
+  win.define("navigation-footer", ["DR", "jquery"], function($) {
     var footer = function(options, callback) { 
-      var endpointUrl = "http://www.dr.dk/drdktopbar/Navigation/RawHtmlFooter"
-      if (options != null) {
-        if (options.proxyUrl != null) {
-          endpointUrl = options.proxyUrl + endpointUrl;
-        }
+      var endpointUrl = DR.basePath + "/drdktopbar/Navigation/RawHtmlFooter"
+      if (DR.proxyUrl != null) {
+        endpointUrl = DR.proxyUrl + endpointUrl;
       }
       $.ajax(endpointUrl, {
         type: "GET",

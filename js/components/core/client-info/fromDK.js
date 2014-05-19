@@ -8,10 +8,8 @@
   win.define("client-info-from-dk", ["DR", "jquery"], function(DR, $) {
     var fromDK = function(options, callback) { 
       var endpointUrl = "http://geo.dr.dk/DR/DR.CheckIP.IsDanish/"
-      if (options != null) {
-        if (options.proxyUrl != null) {
-          endpointUrl = options.proxyUrl + endpointUrl;
-        }
+      if (DR.proxyUrl != null) {
+        endpointUrl = DR.proxyUrl + endpointUrl;
       }
       $.ajax(endpointUrl, {
         type: "GET",

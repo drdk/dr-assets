@@ -9,7 +9,6 @@
 
     var lazyloader = function(options, callback) {
       if (options == null) {
-
         options = {};
       }
 
@@ -32,6 +31,7 @@
             scaleAfter: "crop",
             ratio: "16/9",
             threshold: 100,
+            quality: 75,
             imageBasePath: "//asset.dr.dk/imagescaler/",
             srcAttrib: "data-src",
             ratioAttrib: "data-ratio",
@@ -51,6 +51,7 @@
                + "&w=" + width
                + "&h=" + height
                + "&scaleAfter=" + scaleAfter
+               + "&quality=" + settings.quality;
 
         return src;
       };

@@ -1,3 +1,2 @@
 files:
-    - font-support.js
-    - font-loader.js
+    - font-load.js
