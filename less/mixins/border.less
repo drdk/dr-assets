@@ -1,20 +1,34 @@
 .dotted-border () {
-	.dotted-border-bg(100%);
+  .dotted-border-bg(100%);
 }
 .dotted-border-top () {
-	.dotted-border-bg(-2px);
+  .dotted-border-bg(-2px);
 }
 .dotted-border-bottom () {
-	.dotted-border;
-}
-.dotted-border-hide () {
-	background-position: 0 -3px;
+  .dotted-border;
 }
 .dotted-border-bg (@align) {
-	background: transparent url(http://www.dr.dk/assets/img/border.svg) repeat-x -2px @align;
+  background: transparent url(http://www.dr.dk/assets/img/border.svg) repeat-x -2px @align;
 
-	.no-svg & {
-		background-image: url(http://www.dr.dk/assets/img/border.png);
-	}
+  .no-svg & {
+    background-image: url(http://www.dr.dk/assets/img/border.png);
+  }
 }
 
+
+.dotted-border-inverted () {
+  .dotted-border-inverted-bg(100%);
+}
+.dotted-border-inverted-top () {
+  .dotted-border-inverted-bg(-2px);
+}
+.dotted-border-inverted-bottom () {
+  .dotted-border-inverted;
+}
+.dotted-border-inverted-bg (@align) {
+  background: transparent url(http://www.dr.dk/assets/img/border-inverted.svg) repeat-x -2px @align;
+
+  .no-svg & {
+    background-image: url(http://www.dr.dk/assets/img/border-inverted.png);
+  }
+}
