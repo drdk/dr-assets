@@ -19,22 +19,22 @@
           images = this,
 
           validRatios = {
-            "20/9": 0.45,
-            "16/9": 0.5625,
-            "4/3":  0.75,
-            "1/1":  1,
-            "3/4":  1.25
+            "20-9": 0.45,
+            "16-9": 0.5625,
+            "4-3":  0.75,
+            "1-1":  1,
+            "3-4":  1.25
           },
 
           defaults = {
             pixelRatio: win.devicePixelRatio || 1,
             scaleAfter: "crop",
-            ratio: "16/9",
+            ratio: "16-9",
             threshold: 100,
             quality: 75,
             imageBasePath: "//asset.dr.dk/imagescaler/",
             srcAttrib: "data-src",
-            ratioAttrib: "data-ratio",
+            ratioClassPrefix: "ratio-",
             scaleAfterAttrib: "data-scale-after"
           };
 
@@ -57,17 +57,29 @@
       };
 
       this.one("lazyload", function() {
-        var source = this.getAttribute(settings.srcAttrib),
-            ratio, $this, width, elementRatio, height, elementScaleAfter, scaleAfter, loadSuccess;
 
-        if (!source) {
-          return;
-        }
+        var source = this.getAttribute(settings.srcAttrib);
+        if (!source) { return false; }
+
+        var ratio, $this, width, wrapperClass, wrapperClassArray, elementRatio, height, elementScaleAfter, scaleAfter, loadSuccess, value, _i, _len, _ref;
 
         $this = $(this);
+
         width = this.clientWidth ? this.clientWidth : $this.parents("div").width();
 
-        elementRatio = $this.attr(settings.ratioAttrib);
+        wrapperClass = $this.parent('.image-wrap').attr("class");
+
+        if (wrapperClass) {
+
+          wrapperClassArray = wrapperClass.split(" ");
+          for (_i = 0, _len = wrapperClassArray.length; _i < _len; _i++) {
+            value = wrapperClassArray[_i];
+            if (value.indexOf(settings.ratioClassPrefix) === 0) {
+              elementRatio = value.slice(settings.ratioClassPrefix.length);
+            }
+          }
+        }
+
         ratio = (elementRatio && (validRatios[elementRatio] != null)) ? validRatios[elementRatio] : validRatios[settings.ratio];
 
         height = Math.round(width * ratio);
