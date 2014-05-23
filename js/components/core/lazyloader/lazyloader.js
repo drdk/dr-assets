@@ -44,14 +44,14 @@
       function getImageUri(src, width, height, scaleAfter) {
         if (src == null) { return false; }
 
-        width = Math.round(width * settings.pixelRatio);
-        height = Math.round(height * settings.pixelRatio);
+        /*width = Math.round(width * settings.pixelRatio);
+        height = Math.round(height * settings.pixelRatio);*/
 
         var srcParams = src.split("?");
         if (srcParams.length > 1) {
           src = srcParams[0];
         }
-        
+
         src = encodeURIComponent(src);
         src = settings.imageBasePath
                + "?server=" + "www.dr.dk"
