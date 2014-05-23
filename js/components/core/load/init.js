@@ -58,6 +58,18 @@
 
       };
 
+      if (win.location.hostname === "www.dr.dk") {
+        var webstatURI = "http://www.dr.dk/drWebStat/drWebStat.js";
+        $.ajax({
+          url: webstatURI,
+          cache: true,
+          dataType: "script",
+          error: function(xhr, ajaxOptions, thrownError) {
+            console.log("Error loading drwebstat", xhr.status, thrownError);
+          }
+        });
+      }
+
     });
 
   });
