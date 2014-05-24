@@ -102,6 +102,7 @@
 
         function loadSuccess() {
           $this.addClass('image-load-success')
+          $this.trigger("image-load-success")
         };
 
         if ($this.prop('complete')) {
@@ -114,6 +115,7 @@
 
         this.onerror = function(e) {
           $this.addClass('image-load-error')
+          $this.trigger("image-load-error")
           console.log("image load error", e, imageUri);
         };
 
