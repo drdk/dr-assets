@@ -30,7 +30,7 @@
             pixelRatio: win.devicePixelRatio || 1,
             scaleAfter: "crop",
             ratio: "16-9",
-            threshold: 100,
+            threshold: 0,
             quality: 75,
             imageBasePath: "//asset.dr.dk/imagescaler/",
             srcAttrib: "data-src",
@@ -65,9 +65,9 @@
       };
 
       this.one("lazyload", function() {
-
-        var source = this.getAttribute(settings.srcAttrib);
-        if (!source) { return false; }
+        var alreadyLoaded = this.getAttribute('src'),
+            source = this.getAttribute(settings.srcAttrib);
+        if ((!source)||(alreadyLoaded)) { return false; }
 
         var ratio, $this, width, wrapperClass, wrapperClassArray, elementRatio, height, elementScaleAfter, scaleAfter, loadSuccess, value, _i, _len, _ref;
 
@@ -75,15 +75,15 @@
 
         width = this.clientWidth ? this.clientWidth : $this.parents("div").width();
 
-        wrapperClass = $this.parent('.image-wrap').attr("class");
+        wrapperClass = $this.parent('.image-wrap').attr('class');
 
         if (wrapperClass) {
-
           wrapperClassArray = wrapperClass.split(" ");
           for (_i = 0, _len = wrapperClassArray.length; _i < _len; _i++) {
             value = wrapperClassArray[_i];
             if (value.indexOf(settings.ratioClassPrefix) === 0) {
               elementRatio = value.slice(settings.ratioClassPrefix.length);
+              break;
             }
           }
         }
@@ -109,7 +109,9 @@
           loadSuccess();
         } else {
           $this.load(function() {
-            loadSuccess();
+            if (!$this.hasClass('image-load-error')) {
+              loadSuccess();
+            }
           });
         };
 
@@ -129,8 +131,14 @@
 
       function lazyload() {
         var visibleImages = images.filter(function() {
-          var $e = $(this);
-          
+          var $this = $(this), $e;
+
+          if ($this.parent('.image-wrap').length > 0) {
+            $e = $this.parent('.image-wrap');
+          } else {
+            $e = $this;
+          }
+
           var wt = $w.scrollTop(),
               wb = wt + $w.height(),
               et = $e.offset().top,
