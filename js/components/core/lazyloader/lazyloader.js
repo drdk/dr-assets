@@ -72,6 +72,8 @@
         var ratio, $this, width, wrapperClass, wrapperClassArray, elementRatio, height, elementScaleAfter, scaleAfter, loadSuccess, value, _i, _len, _ref;
 
         $this = $(this);
+        
+        $this.removeAttr("data-src");
 
         width = this.clientWidth ? this.clientWidth : $this.parents("div").width();
 
