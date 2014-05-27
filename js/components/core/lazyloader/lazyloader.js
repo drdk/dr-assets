@@ -52,14 +52,19 @@
           src = srcParams[0];
         }
 
-        src = encodeURIComponent(src);
-        src = settings.imageBasePath
-               + "?server=" + "www.dr.dk"
-               + "&file=" + src
-               + "&w=" + width
-               + "&h=" + height
-               + "&scaleAfter=" + scaleAfter
-               + "&quality=" + settings.quality;
+        // Temporary, check if image is from the mu-online api bar resource
+        if ((src.toLowerCase().match(/\/api\/.*\/bar\//ig))) {
+          src = src + "?width=" + width + "&height=" + height
+        } else {
+          src = encodeURIComponent(src);
+          src = settings.imageBasePath
+                 + "?server=" + "www.dr.dk"
+                 + "&file=" + src
+                 + "&w=" + width
+                 + "&h=" + height
+                 + "&scaleAfter=" + scaleAfter
+                 + "&quality=" + settings.quality;
+        }
 
         return src;
       };
