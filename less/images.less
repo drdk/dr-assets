@@ -5,64 +5,61 @@
   &:hover {
     text-decoration: none;
   }
-  
-  > [data-src] {
-    display: none;
-    visibility: hidden;
-    width: 1px;
-    height: 1px;
-  }
 
   > img {
     z-index: 1;
     zoom: 1;
+
+    &[data-src] {
+      display: none;
+      visibility: hidden;
+      width: 1px;
+      height: 1px;
+    }
   }
 
-  .js & {
-    &[class*=ratio-] {
-      &:after {
-        display: block;        
-        position: relative;
-        visibility: visible !important;
-        width: 100%;
-        padding-bottom: 100%;
-        content: " ";
-        line-height: 0;
+  &[class*=ratio-] {
+    &:after {
+      display: block;        
+      position: relative;
+      visibility: visible !important;
+      width: 100%;
+      padding-bottom: 100%;
+      content: " ";
+      line-height: 0;
+    }
+
+    > img {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+
+      .csstransitions& {
+        opacity: 0;
+        transition: opacity .3s ease-in;
       }
 
-      > img {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-
-        .csstransitions& {
-          opacity: 0;
-          transition: opacity .3s ease-in;
-        }
-
-        &.image-load-success,
-        &.image-load-error {
-          opacity: 1;
-        }
+      &.image-load-success,
+      &.image-load-error {
+        opacity: 1;
       }
     }
+  }
 
-    &.ratio-20-9:after {
-      padding-bottom: 45%;
-    }
+  &.ratio-20-9:after {
+    padding-bottom: 45%;
+  }
 
-    &.ratio-16-9:after {
-      padding-bottom: 56.25%;
-    }
+  &.ratio-16-9:after {
+    padding-bottom: 56.25%;
+  }
 
-    &.ratio-4-3:after {
-      padding-bottom: 75%;
-    }
+  &.ratio-4-3:after {
+    padding-bottom: 75%;
+  }
 
-    &.ratio-3-4:after {
-      padding-bottom: 133.3333333333%;
-    }
-
+  &.ratio-3-4:after {
+    padding-bottom: 133.3333333333%;
   }
 
   noscript {
