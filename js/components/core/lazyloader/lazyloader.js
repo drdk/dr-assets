@@ -30,7 +30,7 @@
             pixelRatio: win.devicePixelRatio || 1,
             scaleAfter: "crop",
             ratio: "16-9",
-            threshold: 100,
+            threshold: 0,
             quality: 75,
             imageBasePath: "//asset.dr.dk/imagescaler/",
             srcAttrib: "data-src",
