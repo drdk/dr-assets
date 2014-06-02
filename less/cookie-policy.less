@@ -1,120 +1,129 @@
 div.cookie-info-box {
   position: fixed;
-  display: block;
-  width: auto;
-  left: 0;
-  rigth: 0;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  background: #4d4d4d;
+  background: rgba(77, 77, 77, 0.95);
+  z-index: 1000;
 
-  div.cookie-container {
-    margin: 10px 10px;
-    width: auto;
+  > div {
+    position: relative;
+    display: block;
+    margin: 10px auto;
+    max-width: 940px;
+    .clearfix();
 
-    h1 {
-      margin: 2px 0 5px 0;
-      padding-left: 32px;
+    > h1 {
+      position: relative;
+      display: block;
+      margin: 2px 0 0 0;
+      padding-left: 60px;
+      font: 14px/16px "gibsonSemiBold", "arial black", sans-serif;
+      color: #fff;
+      text-transform: uppercase;
 
-      img {
-        margin-top: -15px;
-        height: 25px;
+      > img {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -10px;
+        height: 43px;
+        width: auto;
       }
     }
 
-    p {
-      padding-bottom: 10px;
-      margin: 0;
-      width: auto;
+    > button {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      display: block;
+      width: 70px;
+      height: 30px;
+      background: blue;
+      padding: 0 10px;
+      text-align: center;
+      border: 0;
+      outline: 0;
+      font: 14px/30px "gibsonRegular", "Arial", sans-serif;
+      cursor: pointer;
+      background-color: #38b4ef;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+
+      &:active, &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        background-color: #0076ae;
+      }
+
+      &:active {
+        background-color: #38b4ef;
+      }
+    
+      @media (max-width: 980px) {
+        margin-right: 20px;
+      }
     }
 
-    button {
-      position: static;
-      width: 100%;
+    > p {
+      .clearfix();
+      margin: 0 0 0 60px;
+      padding: 0;
+      display: block;
+      margin-right: 70px;
+      font: 14px/16px "gibsonRegular", "Arial", sans-serif; //Georgia, serif;
+      color: #fff;
+      -webkit-font-smoothing: subpixel-antialiased;
+      width: 700px;
+
+      a {
+        margin-top: 3px;
+        display: block;
+        color: #38b4ef;
+        text-decoration: underline;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 830px) {
+        width: 610px;
+      }
     }
   }
 
-  @media (min-width: @screen-sm-min) {
+  @media (max-width: 768px) {
     position: fixed;
-    bottom: 0;
-    height: auto;
-    width: 100%;
-    background: #4d4d4d;
-    background: rgba(77, 77, 77, 0.95);
-    z-index: 1000;
+    display: block;
+    width: auto;
+    left: 0;
+    rigth: 0;
 
-    div.cookie-container {
-      position: relative;
-      display: block;
-      margin: 10px auto;
-      .clearfix();
+    > div {
+      margin: 10px 10px;
+      width: auto;
 
-      h1 {
-        position: relative;
-        display: block;
-        margin: 2px 0 0 0;
-        padding-left: 60px;
-        font: 14px/16px "gibsonSemiBold", "arial black", sans-serif;
-        color: #fff;
-        text-transform: uppercase;
+      > h1 {
+        margin: 2px 0 5px 0;
+        padding-left: 32px;
 
-        img {
-          position: absolute;
-          left: 0;
-          top: 50%;
-          margin-top: -10px;
-          height: 43px;
-          width: auto;
+        > img {
+          margin-top: -15px;
+          height: 25px;
         }
       }
 
-      button {
-        position: absolute;
-        top: 30px;
-        right: 0;
-        display: block;
-        width: 70px;
-        height: 30px;
-        background: blue;
-        padding: 0 10px;
-        text-align: center;
-        border: 0;
-        outline: 0;
-        font: 14px/30px "gibsonRegular", "Arial", sans-serif;
-        cursor: pointer;
-        background-color: #38b4ef;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #fff;
-
-        &:active, &:focus {
-          outline: 0;
-        }
-
-        &:hover {
-          background-color: #0076ae;
-        }
-
-        &:active {
-          background-color: #38b4ef;
-        }
+      > p {
+        padding-bottom: 10px;
+        margin: 0;
+        width: auto;
       }
 
-      p {
-        .clearfix();
-        margin: 0 0 0 60px;
-        padding: 0;
-        display: block;
-        margin-right: 70px;
-        font: 14px/16px "gibsonRegular", "Arial", sans-serif; //Georgia, serif;
-        color: #fff;
-        -webkit-font-smoothing: subpixel-antialiased;
-        width: 700px;
-
-        a {
-          margin-top: 3px;
-          display: block;
-          color: #38b4ef;
-          text-decoration: underline;
-          text-transform: uppercase;
-        }
+      > button {
+        position: static;
+        width: 100%;
       }
     }
   }
