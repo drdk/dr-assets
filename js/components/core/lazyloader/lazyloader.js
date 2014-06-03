@@ -161,6 +161,20 @@
       $w.scroll(lazyload);
       $w.resize(lazyload);
 
+      // Fix iOS scroll on reload issue.
+      var iOS = (typeof navigator !== "undefined" && navigator !== null) 
+                  && (typeof navigator.userAgent !== "undefined" && navigator.userAgent !== null) 
+                  && navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false;
+      
+      if (iOS) {
+        var beforeLoadScrollTop = JSON.parse( JSON.stringify( $w.scrollTop() ) );
+        setTimeout( function() {
+            if (beforeLoadScrollTop !== $w.scrollTop()) {
+                lazyload();
+            }
+        }, 500);
+      }
+
       lazyload();
 
       return this;
