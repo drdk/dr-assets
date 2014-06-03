@@ -6,7 +6,6 @@
 
 (function(win) {
   win.define("lazyloader", ["jquery"], function($) {
-    var iOS = typeof navigator !== "undefined" && navigator !== null && (typeof navigator.userAgent !== "undefined" && navigator.userAgent !== null) && navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false;
 
     var lazyloader = function(options, callback) {
       if (options == null) {
@@ -162,16 +161,7 @@
       $w.scroll(lazyload);
       $w.resize(lazyload);
 
-      // Fix iOS scroll on reload issue.
-      if (iOS) {
-        $w.load(function() {
-            setTimeout(function() {
-                lazyload();
-            }, 100);
-        });
-      } else {
-        lazyload();
-      }
+      lazyload();
 
       return this;
 

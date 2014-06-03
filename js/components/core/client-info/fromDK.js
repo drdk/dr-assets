@@ -46,7 +46,7 @@
             try {
               sessionStorage.setItem(sessionKey, result);
             } catch (e) {
-              console.log("Could not save data: client-info-from-dk", e);
+              console.log("Could not save local storage data: client-info-from-dk", e);
             }
           }
           if (callback != null) {
