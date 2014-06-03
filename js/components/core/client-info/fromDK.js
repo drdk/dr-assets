@@ -39,7 +39,7 @@
           success: function(data, textStatus, jqXHR) {
             result = (data === 'true');
             DR.addClientInfo("fromDK", result);
-            if (sessionStorage && !sessionStorage.getItem(sessionKey)) {
+            if ((typeof(sessionStorage) !== "undefined") && (sessionStorage.getItem(sessionKey) != null)) {
               try {
                 sessionStorage.setItem(sessionKey, result);
               } catch (e) {
