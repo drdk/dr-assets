@@ -15,44 +15,47 @@
         endpointUrl = DR.proxyUrl + endpointUrl;
       }
 
-      if (sessionStorage && !sessionStorage.getItem(sessionKey)) {
-        result = sessionStorage.getItem(sessionKey);
-        DR.addClientInfo("fromDK", result);
-        if (callback != null) {
-          callback(result);
-          return;
-        }
-      } else {
-        $.ajax(endpointUrl, {
-          type: "GET",
-          dataType: "html",
-          timeout: 1000,
-          error: function(jqXHR, textStatus, errorThrown) {
-            console.log("Ajax geo detection request error: " + textStatus);
-            if(textStatus==="timeout") {
-              if (callback != null) {
-                callback(result);
-              }
-            }
+      if ((typeof(sessionStorage) !== "undefined") && (sessionStorage.getItem(sessionKey) != null)) {
+        result = (sessionStorage.getItem(sessionKey) === 'true');
+        if (result) {
+          DR.addClientInfo("fromDK", result);
+          if (callback != null) {
+            callback(result);
             return;
-          },
-          success: function(data, textStatus, jqXHR) {
-            result = (data === 'true');
-            DR.addClientInfo("fromDK", result);
-            if ((typeof(sessionStorage) !== "undefined") && (sessionStorage.getItem(sessionKey) != null)) {
-              try {
-                sessionStorage.setItem(sessionKey, result);
-              } catch (e) {
-                console.log("Could not save data: client-info-from-dk", e);
-              }
-            }
+          }
+        }
+      } 
+
+      $.ajax(endpointUrl, {
+        type: "GET",
+        dataType: "html",
+        timeout: 1000,
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.log("Ajax geo detection request error: " + textStatus);
+          if(textStatus==="timeout") {
             if (callback != null) {
               callback(result);
             }
-            return;
           }
-        });
-      }
+          return;
+        },
+        success: function(data, textStatus, jqXHR) {
+          result = (data === 'true');
+          DR.addClientInfo("fromDK", result);
+          if (typeof(sessionStorage) !== "undefined") {
+            try {
+              sessionStorage.setItem(sessionKey, result);
+            } catch (e) {
+              console.log("Could not save data: client-info-from-dk", e);
+            }
+          }
+          if (callback != null) {
+            callback(result);
+          }
+          return;
+        }
+      });
+
     };
     return {
       initialize: function(options, callback) { fromDK(options, callback) }
