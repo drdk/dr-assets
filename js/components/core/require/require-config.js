@@ -11,7 +11,8 @@
     var config = {
       baseUrl: DR.basePath + "/assets/js/",
       paths: {
-        // first party        
+        // first party   
+        "banner-ads": "005/components/widget-banner-ads"     
         //"dr-media-player-factory": "modules/dr-widget-media",
         //"dr-media-gemius-implementation": "modules/dr-widget-media",
         //"dr-media-gemius-implementation-test": "modules/dr-widget-media",

@@ -24,7 +24,7 @@ Global Banner Ad Control:
       adIDs: [
         { 
           title: "TV Forside",
-          urls: ["/tv", "/tv/program/*"], 
+          urls: ["/tv-beta", "/tv/program/*"], 
           excludeSubpaths: ["/se/*", "/live/*"],
           ads: [
             { placement: "top", adID: 162 },
@@ -33,7 +33,7 @@ Global Banner Ad Control:
         },
         { 
           title: "TV Oversigt",
-          urls: ["/tv/oversigt/*"], 
+          urls: ["/tv-beta/oversigt/*"], 
           ads: [
             { placement: "top", adID: 80 },
             { placement: "bottom", adID: 81 }
