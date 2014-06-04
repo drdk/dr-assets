@@ -27,14 +27,14 @@
           switch (module) {
             case "lazyLoader":
               // Load image lazy loader
-              require(['lazyloader'], function() {
+              win.require(['lazyloader'], function() {
                 $(".image-wrap > img").lazyload();
               });
               break;
 
             case "cookiePolicy":
               // Load cookie policy
-              require(['cookie-policy'], function(cookiePolicy) {
+              win.require(['cookie-policy'], function(cookiePolicy) {
                 cookiePolicy.initialize();
               });
               break;
@@ -45,10 +45,19 @@
               if (autoload.footer !== true) {
                 footerArgs = autoload.footer;
               }
-              require(['navigation-footer'], function(footer) {
+              win.require(['navigation-footer'], function(footer) {
                 footer.initialize.apply(null, footerArgs);
               });
               break;
+
+            case "banner-ads":
+              if (window.location.href.indexOf("?banner_ads=true") > -1) {
+                $(window).load(function(){
+                  win.require(["banner-ads"], function(bannerAds) { 
+                    bannerAds.initialize() 
+                  });
+                });
+              }
 
             default:
               break;

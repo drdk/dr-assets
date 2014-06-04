@@ -4,11 +4,12 @@ Global Banner Ad Control:
 ===============================================================================
 
 */
-
 (function (win) {
-  win.define("banner-ads", ["jquery"], function($) {
+  win.define("banner-ads", ["jquery"], function ($) {
 
-    win.AdServ = win.AdServ || {adspaces:[]};
+    win.AdServ = win.AdServ || {
+      adspaces: []
+    };
 
     var drBannerAds = {
 
@@ -40,17 +41,17 @@ Global Banner Ad Control:
         }
       ],
 
-      initialize: function() {
+      initialize: function () {
         var insertBanners = false;
         var currentUrl = this.cleanUrl(location.pathname);
-        for(var index = 0; index < this.adIDs.length; index++) {
-          for(var urlIndex = 0; urlIndex < this.adIDs[index].urls.length; urlIndex++) {
+        for (var index = 0; index < this.adIDs.length; index++) {
+          for (var urlIndex = 0; urlIndex < this.adIDs[index].urls.length; urlIndex++) {
             var adUrl = this.cleanUrl(this.adIDs[index].urls[urlIndex]);
             if (adUrl.slice(-1) === "*") {
               if (this.cleanUrl(currentUrl.slice(0, adUrl.length - 1)) === adUrl.slice(0, adUrl.length - 2)) {
                 insertBanners = true;
-                if(this.adIDs[index].hasOwnProperty("excludeSubpaths")) {
-                  for(var pathIndex = 0; pathIndex < this.adIDs[index].excludeSubpaths.length; pathIndex++) {
+                if (this.adIDs[index].hasOwnProperty("excludeSubpaths")) {
+                  for (var pathIndex = 0; pathIndex < this.adIDs[index].excludeSubpaths.length; pathIndex++) {
                     var excludeSubpath = this.cleanUrl(this.adIDs[index].excludeSubpaths[pathIndex]);
                     if (excludeSubpath.slice(-1) === "*") {
                       var adUrlExludingSubpath = adUrl.slice(0, adUrl.length - 2) + excludeSubpath.slice(0, excludeSubpath.length - 2);
@@ -62,28 +63,28 @@ Global Banner Ad Control:
                     }
 
                   }
-                } 
+                }
               }
             } else if (currentUrl === adUrl) {
               insertBanners = true;
             }
             if (insertBanners) {
-              return drBannerAds.insert(this.adIDs[index].ads);
+              return this.insert(this.adIDs[index].ads);
             }
           }
         }
       },
 
       defaults: {
-        placement   : null,   
-        adID        : null,
-        keyword   : '',
-        elementID   : null
+        placement: null,
+        adID: null,
+        keyword: '',
+        elementID: null
       },
 
-      cleanUrl: function(url) {
+      cleanUrl: function (url) {
         url = url.toLowerCase();
-        if ((url !== "")&&(url.slice(0,1) !== "/")) {
+        if ((url !== "") && (url.slice(0, 1) !== "/")) {
           url = "/" + url;
         }
         if (url.slice(-1) === "/") {
@@ -92,7 +93,7 @@ Global Banner Ad Control:
         return url;
       },
 
-      setElementID: function(options) {
+      setElementID: function (options) {
         return 'ba_container_' + options.adID + "_" + options.placement;
       },
 
@@ -107,14 +108,14 @@ Global Banner Ad Control:
         }
 
         this.$globalnavigation = $('#globalnavigation');
-        this.$globalfooter     = $('#globalfooter');
+        this.$globalfooter = $('#globalfooter');
 
         //Process each ad
-        for(var i=0; i<this.ads.length; i++) {
+        for (var i = 0; i < this.ads.length; i++) {
           var ad = this.ads[i];
           //Inherit default attributes if any is undefined.
           for (var property in this.defaults) {
-            if ((typeof(ad[property]) === "undefined") || (property === null)) {
+            if ((typeof (ad[property]) === "undefined") || (property === null)) {
               if (property === "elementID") {
                 ad.elementID = this.setElementID(ad);
               } else {
@@ -123,16 +124,26 @@ Global Banner Ad Control:
             }
           }
 
-          if ($(ad.elementID).length > 0) {
-            var $bannerContainer = $('<div>', { "id": ad.elementID }),
-                $body = $('body');
+          if ($('#' + ad.elementID).length === 0) {
+            var $bannerContainer = $('<div>', {
+                "id": ad.elementID
+              }),
+              $body = $('body');
             //Inject container to the defined position
             if (ad.placement === "top") {
-              var $bannerContainerWrapper = $('<div>', { "class": "banner-ad-top-wrapper container-fluid" });
+              var $bannerContainerWrapper = $('<div>', {
+                "class": "banner-ad-top-wrapper"
+              });
+              $bannerContainer.addClass('banner-ad-top container-fluid hidden')
               $bannerContainerWrapper.append($bannerContainer);
               $body.prepend($bannerContainerWrapper);
-            } else if ((ad.placement === "bottom")&&(this.$globalfooter.length > 0)) {
-              $bannerContainer.insertBefore(this.$globalfooter);
+            } else if (ad.placement === "bottom") {
+              if (this.$globalfooter.length > 0) {
+                $bannerContainer.insertBefore(this.$globalfooter);
+              } else {
+                $body.append($bannerContainer);
+              }
+              $bannerContainer.addClass('banner-ad-bottom container-fluid hidden')
             } else if (ad.placement !== null) {
               //Only support top and bottom as placements...
               continue;
@@ -144,33 +155,32 @@ Global Banner Ad Control:
           }
 
           //Insert the ad in the defined target element
-          win.AdServ.adspaces.push({ 
-            "id"      : ad.adID, 
-            "keyword" : ad.keyword, 
-            "target"  : ad.elementID,
-            "adIndex" : i,
-            "onload"  : win.drBannerAds.checkAdMarkup
+          win.AdServ.adspaces.push({
+            "id": ad.adID,
+            "keyword": ad.keyword,
+            "target": ad.elementID,
+            "adIndex": i,
+            "onload": this.onload.bind(this)
           });
         }
 
       },
 
-      checkAdMarkup: function(options, vars) {
-        if ((typeof(options) !== "undefined") && (typeof(vars) !== "undefined")) {
-          if ((typeof(options.banner) !== "undefined") && typeof(vars.adIndex) !== "undefined") {
-            var ad = win.drBannerAds.ads[vars.adIndex];
-            if (typeof(ad) !== "undefined") {
+      onload: function (options, vars) {
+        if ((typeof (options) !== "undefined") && (typeof (vars) !== "undefined")) {
+          if ((typeof (options.banner) !== "undefined") && typeof (vars.adIndex) !== "undefined") {
+            var ad = this.ads[vars.adIndex];
+            if (typeof (ad) !== "undefined") {
               var $elementID = $('#' + ad.elementID);
+
               if ($elementID.length > 0) {
-                
                 if ($elementID.css('display') === "none") {
                   $elementID.css('display', 'block');
                 }
-
                 if (ad.placement === "top") {
-                  $elementID.addClass('banner-ad-top');
+                  $elementID.removeClass('hidden');
                 } else if (ad.placement === "bottom") {
-                  $elementID.addClass('banner-ad-bottom container-fluid');
+                  $elementID.removeClass('hidden');
                 }
 
               }
@@ -179,10 +189,13 @@ Global Banner Ad Control:
         }
       }
 
+
     };
 
     return {
-      initialize: function() { drBannerAds.initialize(); }
+      initialize: function () {
+        drBannerAds.initialize();
+      }
     };
 
   });
