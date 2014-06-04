@@ -25,7 +25,7 @@ Global Banner Ad Control:
         { 
           title: "TV Forside",
           urls: ["/tv", "/tv/program/*"], 
-          excludeSubpaths: ["/se/*"],
+          excludeSubpaths: ["/se/*", "/live/*"],
           ads: [
             { placement: "top", adID: 162 },
             { placement: "bottom", adID: 163 }
