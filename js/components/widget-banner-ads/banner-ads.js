@@ -24,16 +24,16 @@ Global Banner Ad Control:
       adIDs: [
         { 
           title: "TV Forside",
-          urls: ["/tv-beta", "/tv/program/*"], 
+          urls: ["/tv", "/tv/program/*"], 
           excludeSubpaths: ["/se/*", "/live/*"],
           ads: [
-            { placement: "top", adID: 149 }, //162
+            { placement: "top", adID: 162 },
             { placement: "bottom", adID: 163 }
           ]
         },
         { 
           title: "TV Oversigt",
-          urls: ["/tv-beta/oversigt/*"], 
+          urls: ["/tv/oversigt/*"], 
           ads: [
             { placement: "top", adID: 80 },
             { placement: "bottom", adID: 81 }

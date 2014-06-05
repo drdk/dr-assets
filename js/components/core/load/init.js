@@ -51,13 +51,9 @@
               break;
 
             case "bannerAds":
-              if (window.location.href.indexOf("?banner_ads=true") > -1) {
-                $(window).load(function(){
-                  win.require(["banner-ads"], function(bannerAds) { 
-                    bannerAds.initialize() 
-                  });
-                });
-              }
+              win.require(["banner-ads"], function(bannerAds) { 
+                bannerAds.initialize() 
+              });
 
             default:
               break;
