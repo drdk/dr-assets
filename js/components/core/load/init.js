@@ -50,7 +50,7 @@
               });
               break;
 
-            case "banner-ads":
+            case "bannerAds":
               if (window.location.href.indexOf("?banner_ads=true") > -1) {
                 $(window).load(function(){
                   win.require(["banner-ads"], function(bannerAds) { 
