@@ -19,7 +19,7 @@
     }
   }
 
-  if ((typeof(storage) !== "undefined") && (storage.getItem(key) != null)) {
+  if ((typeof(storage) !== "undefined") && (storage.getItem(key) == null)) {
     fontSupport(function (supported) {
       if (supported) {
         request(url.replace("{{format}}", supported), store);
