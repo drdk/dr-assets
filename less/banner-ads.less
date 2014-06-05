@@ -8,14 +8,6 @@
   background-color: #000;
 }
 
-.banner-ad-top:before,
-.banner-ad-bottom:before {
-  padding-bottom: 19.15%;
-  content: " ";
-  visibility: visible !important;
-  display: block;
-}
-
 .banner-ad-top,
 .banner-ad-bottom {
   position: relative;
@@ -26,17 +18,14 @@
   overflow: hidden;
 }
 
-.banner-ad-top *,
-.banner-ad-bottom * {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  max-height: 180px !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: block!important;
+.banner-ad-top,
+.banner-ad-bottom {
+  * {
+    max-height: 180px!important;
+    width: 100%!important;
+    height: 100%!important;
+    display: block!important;
+  }
 }
 
 .banner-ad-top {

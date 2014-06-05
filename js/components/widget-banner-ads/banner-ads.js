@@ -27,7 +27,7 @@ Global Banner Ad Control:
           urls: ["/tv-beta", "/tv/program/*"], 
           excludeSubpaths: ["/se/*", "/live/*"],
           ads: [
-            { placement: "top", adID: 162 },
+            { placement: "top", adID: 149 }, //162
             { placement: "bottom", adID: 163 }
           ]
         },
@@ -130,6 +130,9 @@ Global Banner Ad Control:
               }),
               $body = $('body');
             //Inject container to the defined position
+            if ((ad.placement === "top")||(ad.placement === "bottom")) {
+              $bannerContainer.html('<div class="row"><div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12"></div></div>')
+            }
             if (ad.placement === "top") {
               var $bannerContainerWrapper = $('<div>', {
                 "class": "banner-ad-top-wrapper"
