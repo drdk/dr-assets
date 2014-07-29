@@ -54,6 +54,20 @@
               win.require(["banner-ads"], function(bannerAds) { 
                 bannerAds.initialize() 
               });
+              break;
+
+            case "drWebStat":
+              if (win.location.hostname === "www.dr.dk") {
+                var webstatURI = "http://www.dr.dk/drWebStat/drWebStat.js";
+                $.ajax({
+                  url: webstatURI,
+                  dataType: "script",
+                  error: function(xhr, ajaxOptions, thrownError) {
+                    console.log("Error loading drwebstat", xhr.status, thrownError);
+                  }
+                });
+              }
+              break;
 
             default:
               break;
@@ -63,16 +77,6 @@
 
       };
 
-      if (win.location.hostname === "www.dr.dk") {
-        var webstatURI = "http://www.dr.dk/drWebStat/drWebStat.js";
-        $.ajax({
-          url: webstatURI,
-          dataType: "script",
-          error: function(xhr, ajaxOptions, thrownError) {
-            console.log("Error loading drwebstat", xhr.status, thrownError);
-          }
-        });
-      }
 
     });
 
