@@ -27,7 +27,7 @@
           },
 
           defaults = {
-            pixelRatio: win.devicePixelRatio || 1,
+            pixelRatio: 1, //win.devicePixelRatio || 
             scaleAfter: "crop",
             ratio: "16-9",
             threshold: 0,
