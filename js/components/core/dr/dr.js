@@ -16,7 +16,8 @@
         lazyLoader: true,
         cookiePolicy: true,
         topNavigation: true,
-        footer: true
+        footer: true,
+        drwebstat: true
       },
       clientInfo: {},
       basePath: "",
