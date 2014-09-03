@@ -4,8 +4,12 @@
 |--------------------------------------------------------------------------
 */
 
-(function(win, sessionStorage) {
+(function(win) {
   win.define("client-info-from-dk", ["DR", "jquery"], function(DR, $) {
+    var sessionStorage;
+    try {
+      sessionStorage = win.sessionStorage;
+    } catch {}
     var fromDK = function(options, callback) { 
       var endpointUrl = "http://www.dr.dk/DR/DR.CheckIP.IsDanish/",
           sessionKey = 'client-info-from-dk',
@@ -61,4 +65,4 @@
       initialize: function(options, callback) { fromDK(options, callback) }
     }
   });
-}(window, window.sessionStorage));
+}(window));

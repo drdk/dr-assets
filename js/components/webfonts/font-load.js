@@ -1,4 +1,4 @@
-(function (win, doc, storage) {
+(function (win, doc) {
   var body, fakeBody, div, span, overflow,
     key        = "dr-webfonts",
     url        = "/assets/css/006/fonts-{{format}}.css";
@@ -8,7 +8,12 @@
     isComplete = false,
     isRunning  = false,
     callbacks  = [],
-    support    = {};
+    support    = {},
+    storage;
+
+    try {
+      storage = window.localStorage;
+    } catch {}
 
   if (win.DR != null) {
     if (win.DR.basePath != null) {
@@ -163,4 +168,4 @@
     xhr.send(null);
   }
 
-}(window, window.document, window.localStorage));
+}(window, window.document));
