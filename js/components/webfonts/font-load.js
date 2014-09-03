@@ -12,8 +12,8 @@
     storage;
 
     try {
-      storage = window.localStorage;
-    } catch {}
+      storage = win.localStorage;
+    } catch (err) {}
 
   if (win.DR != null) {
     if (win.DR.basePath != null) {

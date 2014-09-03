@@ -9,7 +9,7 @@
     var sessionStorage;
     try {
       sessionStorage = win.sessionStorage;
-    } catch {}
+    } catch (err) {}
     var fromDK = function(options, callback) { 
       var endpointUrl = "http://www.dr.dk/DR/DR.CheckIP.IsDanish/",
           sessionKey = 'client-info-from-dk',
