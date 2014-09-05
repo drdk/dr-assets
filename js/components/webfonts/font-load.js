@@ -9,7 +9,7 @@
     isRunning  = false,
     callbacks  = [],
     support    = {},
-    storage;
+    storage    = null;
 
     try {
       storage = win.localStorage;
@@ -24,7 +24,7 @@
     }
   }
 
-  if ((typeof(storage) !== "undefined") && (storage.getItem(key) == null)) {
+  if ((storage !== null) && (storage.getItem) && (storage.getItem(key) == null)) {
     fontSupport(function (supported) {
       if (supported) {
         request(url.replace("{{format}}", supported), store);
