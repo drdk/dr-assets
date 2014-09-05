@@ -24,7 +24,7 @@
     }
   }
 
-  if ((storage !== null) && (storage.getItem) && (storage.getItem(key) == null)) {
+  if ((storage !== null) && (typeof(storage.getItem) === 'function') && (storage.getItem(key) == null)) {
     fontSupport(function (supported) {
       if (supported) {
         request(url.replace("{{format}}", supported), store);
