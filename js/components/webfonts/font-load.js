@@ -162,7 +162,6 @@
 
   function request(url, callback) {
     var xhr = new XMLHttpRequest();
-    url = "http://localhost:3000/tv/ajaxproxy?url=" + url;
     xhr.open("GET", url, true);
     xhr.onload = function () {
       callback(xhr.responseText);
