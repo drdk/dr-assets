@@ -20,6 +20,9 @@
     if (win.DR.basePath != null) {
       url = win.DR.basePath + url;
     }
+    if (win.DR.proxyUrl != null) {
+      url = win.DR.proxyUrl + url;
+    }
   }
 
   if ((storage !== null) && (typeof(storage.getItem) === 'function') && (storage.getItem(key) == null)) {
