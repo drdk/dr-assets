@@ -58,7 +58,7 @@
 
             case "drwebstat":
               if (win.location.hostname === "www.dr.dk") {
-                var webstatURI = location.protocol + "//www.dr.dk/drWebStat/drWebStat.js";
+                var webstatURI = win.location.protocol + "//www.dr.dk/drWebStat/drWebStat.js";
                 $.ajax({
                   url: webstatURI,
                   dataType: "script",

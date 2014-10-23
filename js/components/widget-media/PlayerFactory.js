@@ -113,7 +113,7 @@ define("dr-media-player-factory", [
             //if (getQuerystring('testgemius', '') === 'true') {
             if (document.URL.indexOf('http://localhost') > -1 || getQuerystring('testgemius', '') == 'true') {
                 player.options.appData.gemius.identifier = 'nG3qv4yhf5tCBFBDdg9Yd.WoDtwFYkNTUkvP5wgzgP7.Q7';
-                player.options.appData.gemius.hitcollector = location.protocol + '//pro.hit.gemius.pl',
+                player.options.appData.gemius.hitcollector = window.location.protocol + '//pro.hit.gemius.pl',
 
                 gemius = new GemiusImplementationTest(player);
             } else {
