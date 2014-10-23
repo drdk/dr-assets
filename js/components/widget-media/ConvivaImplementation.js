@@ -3,7 +3,7 @@ define("dr-media-conviva-implementation", function () {
 
     var ConvivaImplementation = new Class({
         
-    	SERVICE_URL: 'http://livepass.conviva.com',
+    	SERVICE_URL: window.location.protocol + '//livepass.conviva.com',
         CUSTOMER_ID: 'c3.DR-DK',
 
         initialize: function (player) {

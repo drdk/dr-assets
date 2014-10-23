@@ -26,13 +26,13 @@
     var cookiePolicy = {
 
       __data: {
-        iconUrl: "http://www.dr.dk/assets/img/cookie-icon.png",
+        iconUrl: "//www.dr.dk/assets/img/cookie-icon.png",
         title: "Cookie- og privatlivspolitik på dr.dk",
         mobileTitle: "Cookie- og privatlivspolitik",
         bodyText: "Vi bruger cookies for at forbedre din oplevelse, vurdere brugen af de enkelte elementer på dr.dk "
         + "og til at støtte markedsføringen af vores services. Ved at klikke videre på dr.dk accepterer du vores "
         + "brug af cookies.",
-        infoUrl: "http://www.dr.dk/service/privatlivspolitik/"
+        infoUrl: "//www.dr.dk/service/privatlivspolitik/"
       },
       
       __template: "<!--googleoff: all--><div>"

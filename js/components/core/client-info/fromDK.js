@@ -11,7 +11,7 @@
       sessionStorage = win.sessionStorage;
     } catch (err) {}
     var fromDK = function(options, callback) { 
-      var endpointUrl = "http://www.dr.dk/DR/DR.CheckIP.IsDanish/",
+      var endpointUrl = win.location.protocol + "//www.dr.dk/DR/DR.CheckIP.IsDanish/",
           sessionKey = 'client-info-from-dk',
           result;
 

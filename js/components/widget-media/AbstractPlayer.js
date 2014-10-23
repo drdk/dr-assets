@@ -11,7 +11,7 @@ define("dr-media-abstract-player", ["dr-media-hash-implementation"], function (H
                 gemius: {
                     drIdentifier: '019_drdk-',
                     identifier: 'p9AwR.N.S86s_NjaJKdww7b.fdp8ky90ZnrKpgLHOUn.s7',
-                    hitcollector: 'http://sdk.hit.gemius.pl',
+                    hitcollector: window.location.protocol + '//sdk.hit.gemius.pl',
                     channelName: 'drdk'
                 },
                 linkType: 'Streaming',
@@ -636,7 +636,7 @@ define("dr-media-abstract-player", ["dr-media-hash-implementation"], function (H
         queryGeofilter: function() {
             var xmlhttp = new XMLHttpRequest();
 
-            xmlhttp.open("GET","http://geo.dr.dk/DR/DR.CheckIP.IsDanish/", true);
+            xmlhttp.open("GET", window.location.protocol + "//geo.dr.dk/DR/DR.CheckIP.IsDanish/", true);
             xmlhttp.setRequestHeader("Cache-Control", "no-cache");
             xmlhttp.setRequestHeader("Accept", "*/*");
             xmlhttp.setRequestHeader("Server", "geo.dr.dk");
