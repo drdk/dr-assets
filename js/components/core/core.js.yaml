@@ -3,7 +3,7 @@ files:
   - dr/dr.js
   - require/require-config.js
   - lazyloader/lazyloader.js
-  - ../widget-cookie-policy/cookie-policy.js
+  - ../widget-cookie-policy/drc-cookie-policy.js
   - navigation/footer.js
   - client-info/fromDK.js
   - load/init.js
