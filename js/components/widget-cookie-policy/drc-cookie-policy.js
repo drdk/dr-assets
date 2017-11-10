@@ -1,2 +1,4 @@
-var cookiePolicyLoade = require('@dr/drc-global/cookie-policy');
-cookiePolicyLoader.initialize();
+win.define("cookie-policy", function() {
+  var cookiePolicyLoader = require('@dr/drc-global/cookie-policy');
+  cookiePolicyLoader.initialize();
+}
