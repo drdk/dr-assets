@@ -208,7 +208,7 @@ var storageKey = "cookieDismissed";
 var cookiePolicyLoader = {
   initialize: function(options) {
     if (location.hostname.toLowerCase().slice(-6) !== ".dr.dk") {
-      // return;
+      return;
     }
 
     try {
