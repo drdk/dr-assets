@@ -3,7 +3,7 @@
 | DR Global Object
 |--------------------------------------------------------------------------
 |
-| Use for states and settings. 
+| Use for states and settings.
 */
 
 (function(win) {

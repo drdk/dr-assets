@@ -1,18 +1,18 @@
 /*
 |--------------------------------------------------------------------------
-| DR Require JS config. 
+| DR Require JS config.
 |--------------------------------------------------------------------------
 |
 | Builds on top of the DR Global Object to define the configuration.
 */
 
-(function(win) { 
+(function(win) {
   win.require(["DR"], function(DR) {
     var config = {
       baseUrl: DR.basePath + "/assets/js/",
       paths: {
-        // first party   
-        "banner-ads": "005/components/widget-banner-ads"     
+        // first party
+        "banner-ads": "005/components/widget-banner-ads"
         //"dr-media-player-factory": "modules/dr-widget-media",
         //"dr-media-gemius-implementation": "modules/dr-widget-media",
         //"dr-media-gemius-implementation-test": "modules/dr-widget-media",
@@ -82,8 +82,8 @@
         if ((win.require.s != null) && (win.require.s.contexts != null) && (win.require.s.contexts['_'] != null) && (win.require.s.contexts['_'].registry != null)) {
           DR.require.registry = win.require.s.contexts['_'].registry;
         };
-      };   
-      return; 
+      };
+      return;
     };
 
   });
