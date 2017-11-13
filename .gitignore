@@ -27,3 +27,5 @@ nbproject
 # Folders to ignore
 node_modules
 bower_components
+cookie-policy.inject.css
+cookie-policy.js
