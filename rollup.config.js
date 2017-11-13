@@ -6,7 +6,11 @@ export default {
   input: 'js/components/widget-cookie-policy/drc-cookie-policy.js',
   output: {
     file: 'js/components/widget-cookie-policy/cookie-policy.js',
-    format: 'amd'
+    format: 'amd',
+    amd: {
+      id: 'cookie-policy',
+      define: 'window.define'
+    }
   },
   plugins: [
     less({
@@ -15,7 +19,6 @@ export default {
       exclude: []
     }),
     resolve(),
-    commonjs({
-    })
+    commonjs()
   ]
 };
