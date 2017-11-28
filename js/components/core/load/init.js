@@ -61,6 +61,7 @@
                 var webstatURI = win.location.protocol + "//www.dr.dk/drWebStat/drWebStat.js";
                 $.ajax({
                   url: webstatURI,
+                  cache: true,
                   dataType: "script",
                   error: function(xhr, ajaxOptions, thrownError) {
                     console.log("Error loading drwebstat", xhr.status, thrownError);
