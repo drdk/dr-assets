@@ -115,7 +115,7 @@
         if ($this.prop('complete')) {
           loadSuccess();
         } else {
-          $this.load(function() {
+          $this.on("load", function() {
             if (!$this.hasClass('image-load-error')) {
               loadSuccess();
             }
